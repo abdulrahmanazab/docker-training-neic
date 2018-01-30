@@ -113,8 +113,7 @@ Extra (if we have time):
 * [Run a simple web app](http://training.play-with-docker.com/node-sql-server-docker/)
 * [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
 * [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-
-Good general exercise:
-* [Docker for beginners](http://training.play-with-docker.com/beginner-linux/)
+* [Good general exercise: Docker for beginners](http://training.play-with-docker.com/beginner-linux/)
+* [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/docker-userns.md)
 
 
