@@ -22,7 +22,7 @@ $ sudo yum makecache fast
 ```bash
 sudo yum install docker-ce
 ```
-Accept this fingerprint: 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35
+Accept this fingerprint ``060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35``
 
 Try Docker
 -----------
