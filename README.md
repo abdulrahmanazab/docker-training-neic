@@ -5,12 +5,15 @@ The training infrastructure is offered by [cPouta](https://research.csc.fi/cpout
 
 Connect to your VM
 --------------------
+* You will get the key file ``docker-tutorial.pem`` from your instructor
+* Now use it to connect to your VM:
 ```bash
 chmod 600 docker-tutorial.pem 
 ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
-[cloud-user@docker-test ~]$ ssh -i docker-tutorial.pem cloud-user@docker-tutorial-[1-17]
+[cloud-user@docker-tutorial-terminal ~]$ ssh -i docker-tutorial.pem cloud-user@<your-VM-name>
 ```
 Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker-htcondor.md)
+* [Singularity **(Extra)**](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/singularity.md)
