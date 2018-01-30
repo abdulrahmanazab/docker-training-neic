@@ -16,4 +16,6 @@ Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker-htcondor.md)
-* [Singularity **(Extra)**](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/singularity.md)
+
+Extra (if we have time):
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/singularity.md)
