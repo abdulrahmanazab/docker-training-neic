@@ -26,7 +26,11 @@ Accept this fingerprint ``060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35``
 
 Try Docker
 -----------
-* List images:
+* Start the docker service
+```bash
+sudo service docker start
+```
+* Test docker:
 ```bash
 $ docker run hello-world
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.27/images/json: dial unix /var/run/docker.sock: connect: permission denied
