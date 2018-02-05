@@ -164,4 +164,5 @@ Useful links
 -------------
 * [Install Condor](https://research.cs.wisc.edu/htcondor/instructions/el/7/stable/)
 * [Configure Condor for multiple nodes](https://spinningmatt.wordpress.com/2011/06/12/getting-started-creating-a-multiple-node-condor-pool/)
+* [Docker universe in Condor](https://research.cs.wisc.edu/htcondor/manual/latest/3_16Setting_Up.html#SECTION004162000000000000000)
 * [Condor security](http://research.cs.wisc.edu/htcondor/manual/v8.2/3_6Security.html)
