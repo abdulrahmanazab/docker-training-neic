@@ -24,8 +24,8 @@ ENV PATH $PATH:/opt/bowtie2
 7. Go to *settings* tab, and make the repo public
 8. Go to your VM and run ``docker search <your-docker-id>`` and you get an output like this:
 ```bash
-NAME                             DESCRIPTION                             STARS           OFFICIAL            AUTOMATED
-usit/bowtie2                     bowtie2 test                            0                                   [OK]
+NAME                             DESCRIPTION                         STARS           OFFICIAL            AUTOMATED
+usit/bowtie2                     bowtie2 test                        0                                   [OK]
 ```
 9. Now test your bowtie2 image. run ``docker run --rm usit/bowtie2 bowtie2 --version``
 ```bash
