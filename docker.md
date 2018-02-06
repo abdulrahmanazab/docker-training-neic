@@ -26,6 +26,10 @@ Accept this fingerprint ``060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35``
 
 Try Docker
 -----------
+* Start the docker service
+```bash
+sudo service docker start
+```
 * List images:
 ```bash
 $ docker run hello-world
