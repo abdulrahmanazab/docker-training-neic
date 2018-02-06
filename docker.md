@@ -79,7 +79,7 @@ Here we go...
 2. [Docker images](http://training.play-with-docker.com/ops-s1-images/)
 3. [Advanced example](http://training.play-with-docker.com/beginner-linux/)
 4. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
-5. [Docker continuous integration](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/docker-continuous-integration.md) ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/Docker-continous-integration.pdf))
+5. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/docker-continuous-integration.md))
 5. [Docker swarm 1](http://training.play-with-docker.com/swarm-mode-intro/)
 6. [Docker Compose](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/docker-compose.md)
 7. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
