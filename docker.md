@@ -81,7 +81,7 @@ Here we go...
 4. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
 5. [Docker swarm 1](http://training.play-with-docker.com/swarm-mode-intro/)
 6. [Docker Compose](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2018/docker-compose.md)
-7. [Docker swarm 2](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+7. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Extra (if we have time):
 * [Run a simple web app](http://training.play-with-docker.com/node-sql-server-docker/)
