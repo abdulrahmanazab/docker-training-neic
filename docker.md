@@ -75,14 +75,16 @@ For more examples and ideas, visit:
 
 Here we go...
 --------------
-* [Run your first container](http://training.play-with-docker.com/ops-s1-hello/)
-* [Docker images](http://training.play-with-docker.com/ops-s1-images/)
-* [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
+1. [Run your first container](http://training.play-with-docker.com/ops-s1-hello/)
+2. [Docker images](http://training.play-with-docker.com/ops-s1-images/)
+3. [Advanced example](http://training.play-with-docker.com/beginner-linux/)
+4. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
+5. [Docker swarm 1](http://training.play-with-docker.com/swarm-mode-intro/)
+6. [Docker swarm 2](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Extra (if we have time):
 * [Run a simple web app](http://training.play-with-docker.com/node-sql-server-docker/)
 * [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-* [Good general exercise: Docker for beginners](http://training.play-with-docker.com/beginner-linux/)
 * [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-ahm-2018/docker-userns.md)
 
 
