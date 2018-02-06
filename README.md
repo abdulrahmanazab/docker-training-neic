@@ -1,5 +1,5 @@
 
-# Containers workshop material NeIC AHM 2018
+# Containers workshop material Research Bazaar 2018
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
