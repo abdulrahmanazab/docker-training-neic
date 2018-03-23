@@ -67,7 +67,24 @@ $ singularity -h <subcommand>
 $ singularity <subcommand> --help
 $ singularity <subcommand -h
 ```
-* Invoke a Docker container
+* Download pre-built images
+
+From singularity hub:
+```bash
+$ singularity pull shub://vsoch/hello-world   # pull with default name, vsoch-hello-world-master.simg
+$ singularity pull --name hello.simg shub://vsoch/hello-world   # pull with custom name
+```
+From Docker hub:
+```bash
+$ singularity pull docker://godlovedc/lolcow  # with default name
+$ singularity pull --name funny.simg docker://godlovedc/lolcow # with custom name
+```
+* Build images
+```bash
+$ singularity build hello-world.simg shub://vsoch/hello-world
+$ singularity build lolcow.simg docker://godlovedc/lolcow
+```
+* Interact with containers
 ```bash
 $ cat /etc/redhat-release 
 CentOS Linux release 7.2.1511 (Core) 
@@ -90,28 +107,37 @@ Singularity.ubuntu:latest> which apt-get
 /usr/bin/apt-get
 Singularity.ubuntu:latest> exit
 ```
+* Interact with a pulled image
+```bash
+$ singularity pull --name hello-world.simg shub://vsoch/hello-world
+$ singularity shell hello-world.simg
+Singularity: Invoking an interactive shell within container...
+
+# I am the same user inside as outside!
+Singularity hello-world.simg:~/Desktop> whoami
+vanessa
+
+Singularity hello-world.simg:~/Desktop> id
+uid=1000(vanessa) gid=1000(vanessa) groups=1000(vanessa),4(adm),24,27,30(tape),46,113,128,999(input)
+```
 * Execute a command on a pulled image
-
-[source page](http://singularity.lbl.gov/docs-exec)
-
-* Create an image
 ```bash
-$ sudo singularity create container.img
-Creating a new image with a maximum size of 768MiB...
-Executing image create helper
-Formatting image with ext3 file system
-Done.
+$ singularity exec hello-world.simg ls /
+anaconda-post.log  etc	 lib64	     mnt   root  singularity  tmp
+bin		   home  lost+found  opt   run	 srv	      usr
+dev		   lib	 media	     proc  sbin  sys	      var
 ```
-* Customize the image size
+``exec`` also works with the ``shub://`` and ``docker://`` URIs. This creates an ephemeral container that executes a command and disappears.
 ```bash
-$ sudo singularity create --size 2048 container.img
-Creating a new image with a maximum size of 2048MiB...
-Executing image create helper
-Formatting image with ext3 file system
-Done.
+$ singularity exec shub://singularityhub/ubuntu cat /etc/os-release
 ```
-Bootstrap images
+
+Singularity recipes
 ------------------
+Read the docs [here](http://singularity.lbl.gov/quickstart#singularity-recipes)
+
+Docker example:
+
 * Create a ubuntu (from docker) def file
 ```bash
 cat >> ubuntu.def
@@ -128,13 +154,9 @@ From: ubuntu:latest
     # This part is for Abel and colossus clusters at UiO:
     mkdir /cluster /work /tsd /usit /projects
 ```
-* Create an image
+* Build the container from the def file
 ```bash
-sudo singularity create ubuntu.img
-```
-* Bootstrap it
-```bash
-sudo singularity bootstrap ubuntu.img ubuntu.def
+sudo singularity build ubuntu.img ubuntu.def
 ```
 * Push the container image to Abel cluster and login
 ```bash
