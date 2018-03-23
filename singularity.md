@@ -13,6 +13,11 @@ make
 sudo make install
 
 ```
+* Install squashfs-tools
+```bash
+sudo yum install squashfs-tools
+```
+
 Getting started
 ----------------
 * See the interface
