@@ -14,6 +14,6 @@ ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/docker-htcondor.md)
-* [Singularity **(Extra)**](https://github.com/abdulrahmanazab/docker-training-neic/blob/master/singularity.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-ahm-2018/docker.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-ahm-2018/docker-htcondor.md)
+* [Singularity **(Extra)**](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-ahm-2018/singularity.md)
