@@ -4,7 +4,7 @@ Installation
 -------------
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
-VERSION=2.2.1
+VERSION=2.4.5
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar xvf singularity-$VERSION.tar.gz
 cd singularity-$VERSION
@@ -21,37 +21,40 @@ $ singularity --help
 USAGE: singularity [global options...] <command> [command options...] ...
 
 GLOBAL OPTIONS:
-    -d --debug    Print debugging information
-    -h --help     Display usage summary
-    -q --quiet    Only print errors
+    -d|--debug    Print debugging information
+    -h|--help     Display usage summary
+    -s|--silent   Only print errors
+    -q|--quiet    Suppress all normal output
        --version  Show application version
-    -v --verbose  Increase verbosity +1
-    -x --sh-debug Print shell wrapper debugging information
+    -v|--verbose  Increase verbosity +1
+    -x|--sh-debug Print shell wrapper debugging information
 
 GENERAL COMMANDS:
-    help          Show additional help for a command
+    help       Show additional help for a command or container                  
+    selftest   Run some self tests for singularity install                      
 
 CONTAINER USAGE COMMANDS:
-    exec          Execute a command within container
-    run           Launch a runscript within container
-    shell         Run a Bourne shell within container
-    test          Execute any test code defined within container
+    exec       Execute a command within container                               
+    run        Launch a runscript within container                              
+    shell      Run a Bourne shell within container                              
+    test       Launch a testscript within container                             
+
+CONTAINER MANAGEMENT COMMANDS:
+    apps       List available apps within a container                           
+    bootstrap  *Deprecated* use build instead                                   
+    build      Build a new Singularity container                                
+    check      Perform container lint checks                                    
+    inspect    Display a container's metadata                                   
+    mount      Mount a Singularity container image                              
+    pull       Pull a Singularity/Docker container to $PWD                      
+
+COMMAND GROUPS:
+    image      Container image command group                                    
+    instance   Persistent instance command group                                
+
 
 CONTAINER USAGE OPTIONS:
-    -H  --home    Specify $HOME to mount 
-
-CONTAINER MANAGEMENT COMMANDS (requires root):
-    bootstrap     Bootstrap a new Singularity image from scratch
-    copy          Copy files from your host into the container
-    create        Create a new container image
-    expand        Grow the container image
-    export        Export the contents of a container via a tar pipe
-    import        Import/add container contents via a tar pipe
-    mount         Mount a Singularity container image
-
-CONTAINER REGISTRY COMMANDS:
-    pull          pull a Singularity Hub container to $PWD
-
+    see singularity help <command>
 
 For any additional help or support visit the Singularity
 website: http://singularity.lbl.gov/
