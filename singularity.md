@@ -158,24 +158,6 @@ From: ubuntu:latest
 ```bash
 sudo singularity build ubuntu.img ubuntu.def
 ```
-* Push the container image to Abel cluster and login
-```bash
-sftp <username>@abel.uio.no
-sftp> put ubuntu.img
-sftp> exit
-ssh <username>@abel.uio.no
-```
-* Submit a [test singularity job](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity-slurm-abel.sh) to slurm on abel
-
-Import an image
-----------------
-```bash
-$ gunzip -c debian.tar.gz | sudo singularity import /tmp/Debian
-$ sudo singularity import /tmp/Debian.img debian.tar.gz
-$ sudo singularity import /tmp/Debian.img file://debian.tar.gz
-$ sudo singularity import /tmp/Debian.img http://foo.com/debian.tar.gz
-$ sudo singularity import /tmp/Debian.img docker://ubuntu:latest
-```
 Use a Singularity container on Abel/Colossus
 ---------------------------------------------
 On your VM:
@@ -215,6 +197,8 @@ Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
 Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
 bash-4.1$
 ```
+* Submit a [test singularity job](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity-slurm-abel.sh) to slurm on abel
+
 More ...
 -------------
 * [File sharing](http://singularity.lbl.gov/docs-mount)
