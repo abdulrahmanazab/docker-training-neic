@@ -151,6 +151,45 @@ $ sudo singularity import /tmp/Debian.img file://debian.tar.gz
 $ sudo singularity import /tmp/Debian.img http://foo.com/debian.tar.gz
 $ sudo singularity import /tmp/Debian.img docker://ubuntu:latest
 ```
+Use a Singularity container on Abel/Colossus
+---------------------------------------------
+On your VM:
+
+```bash
+docker search bowtie2
+...
+sudo singularity build -w bowtie2.simg docker://biocontainers/bowtie2
+sudo singularity shell -w bowtie2.simg
+Singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net
+Singularity bowtie2.simg:/root> exit
+
+scp bowtie2.simg <abel-user>@abel.uio.no:~/
+```
+Now go to Abel:
+
+```bash
+ssh <abel-user>@abel.uio.no
+[<abel-user>@login-0-1 ~]$ module avail singularity
+---------------------------------------------- /cluster/etc/modulefiles -----------------------------------------------
+singularity/2.2.1          singularity/2.4.2          singularity/2.4.5(default)
+singularity/2.4            singularity/2.4.4
+[<abel-user>@login-0-1 ~]$ module load singularity
+[<abel-user>@login-0-1 ~]$ qlogin -A <project>
+salloc: Pending job allocation 20627631
+salloc: job 20627631 queued and waiting for resources
+salloc: job 20627631 has been allocated resources
+salloc: Granted job allocation 20627631
+srun: Job step created
+bash-4.1$ singularity exec bowtie2.simg bowtie2 --version
+/home/biodocker/bin/bowtie2-align-s version 2.2.9
+64-bit
+Built on localhost.localdomain
+Thu Apr 21 18:36:37 EDT 2016
+Compiler: gcc version 4.1.2 20080704 (Red Hat 4.1.2-54)
+Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+bash-4.1$
+```
 More ...
 -------------
 * [File sharing](http://singularity.lbl.gov/docs-mount)
