@@ -40,7 +40,7 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 $ sudo groupadd docker
 $ sudo usermod -aG docker cloud-user
 $ exit
-$ ssh -i docker-tutorial.pem cloud-user@<IP-Address>
+$ ssh -i docker-tutorial.pem cloud-user@<your-VM>
 ```
 * Now you can use docker:
 ```bash
