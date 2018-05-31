@@ -1,5 +1,5 @@
 
-# Containers Tutorial PRACEDays 2018
+# Containers Tutorial PRACEdays 2018
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
