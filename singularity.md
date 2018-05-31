@@ -2,6 +2,11 @@
 
 Installation
 -------------
+* Install required packages
+```bash
+sudo yum install -y squashfs-tools libarchive-devel
+```
+
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
 VERSION=2.5.1
@@ -11,13 +16,8 @@ cd singularity-$VERSION
 ./configure --prefix=/usr/local
 make
 sudo make install
-
+cd
 ```
-* Install squashfs-tools
-```bash
-sudo yum install squashfs-tools
-```
-
 Getting started
 ----------------
 * See the interface
