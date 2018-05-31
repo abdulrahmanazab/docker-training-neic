@@ -1,5 +1,5 @@
 
-# Containers Tutorial Abel course 2018
+# Containers Tutorial PRACEDays 2018
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
@@ -14,9 +14,9 @@ ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/abel-course/docker.md)
-* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/abel-course/singularity.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/pracedays2018/docker.md)
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/pracedays2018/singularity.md)
 
 Extra (if we have time):
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/abel-course/docker-htcondor.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/pracedays2018/docker-htcondor.md)
 
