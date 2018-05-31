@@ -4,7 +4,7 @@ Installation
 -------------
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
-VERSION=2.4.5
+VERSION=2.5.1
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar xvf singularity-$VERSION.tar.gz
 cd singularity-$VERSION
