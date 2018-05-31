@@ -12,6 +12,8 @@ chmod 600 docker-tutorial.pem
 ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 [cloud-user@docker-tutorial-terminal ~]$ ssh -i docker-tutorial.pem cloud-user@<your-VM-name>
 ```
+[How to use pem file with putty on windows](https://www.youtube.com/watch?v=3h3TuJq0Rx4)
+
 Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/pracedays2018/docker.md)
