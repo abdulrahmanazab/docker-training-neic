@@ -1,5 +1,7 @@
 # Singularity
 
+Get to know singularity [here](https://singularity.lbl.gov/)
+
 Installation
 -------------
 * Install required packages
