@@ -1,6 +1,7 @@
 # Singularity
 
-Get to know singularity [here](https://singularity.lbl.gov/)
+* Get to know singularity [here](https://singularity.lbl.gov/)
+* [Singularity slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-ws-2018/hpc-containers-singularity-introductory.pdf)
 
 Installation
 -------------
