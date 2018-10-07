@@ -85,8 +85,4 @@ Here we go...
 8. [Docker swarm 1](http://training.play-with-docker.com/swarm-mode-intro/)
 9. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
-Extra (if we have time):
-* [Run a simple web app](http://training.play-with-docker.com/node-sql-server-docker/)
-
-
 
