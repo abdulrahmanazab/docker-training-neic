@@ -7,3 +7,4 @@ Tutorial material
 1. [Installation](https://docs.docker.com/compose/install/)
 2. [Getting started](https://docs.docker.com/compose/gettingstarted/)
 3. [Wordpress example](https://training-course-material.com/training/Docker_Compose)
+4. [Run a simple web app (more detailed example)](http://training.play-with-docker.com/node-sql-server-docker/)
