@@ -20,6 +20,28 @@ For this mapping, root (UID 0) will be mapped to UID 500000
 grubby --args="user_namespace.enable=1" --update-kernel="$(grubby --default-kernel)"
 reboot
 ```
+For RHEL or CentOS 7.5+, you need to do the following:
+
+* Remove user_namespace.enable=1 kernel parameter:
+```bash
+grubby  --remove-args="user_namespace.enable=1" --update-kernel=/boot/vmlinuz-3.10.0-693.5.2.el7.x86_64
+```
+* Add the new parameter:
+```
+grubby --args="namespace.unpriv_enable=1" --update-kernel=/boot/vmlinuz-3.10.0-693.5.2.el7.x86_64
+```
+* Edit /etc/sysctl.conf and add:
+```bash
+user.max_user_namespaces=1507
+```
+* Execute the below set of commands:
+```bash
+echo "sysctl --system /etc/sysctl.d" >> /etc/rc.d/rc.local
+chmod 755 /etc/rc.d/rc.local
+```
+* Reboot the node after making the change
+
+```
 * Access your VM again, when it is up, then modify the ``ExecStart`` attribute in ``/usr/lib/systemd/system/docker.service``:
 ```bash
 ExecStart=/usr/bin/dockerd --userns-remap=default
