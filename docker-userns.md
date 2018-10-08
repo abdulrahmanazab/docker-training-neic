@@ -34,9 +34,7 @@ For this mapping, root (UID 0) will be mapped to UID 500000
   ```
   * Add a line to ``/etc/sysctl.conf``:
   ```bash
-  cat >> /etc/sysctl.conf
-  user.max_user_namespaces=1507
-  Ctrl+D
+  echo "user.max_user_namespaces=1507" >> /etc/sysctl.conf
   ```
   * Execute the below set of commands:
   ```bash
