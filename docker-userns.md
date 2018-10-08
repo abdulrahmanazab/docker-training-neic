@@ -48,6 +48,10 @@ For this mapping, root (UID 0) will be mapped to UID 500000
 ```bash
 ExecStart=/usr/bin/dockerd --userns-remap=default
 ```
+* Start the Docker service:
+```bash
+sudo service docker start
+```
 * test that the container root is remapped. Run a sleep process in a Docker container and verify that the container root is remapped to 500000:
 ```bash
 docker run -d -it centos sleep 100
