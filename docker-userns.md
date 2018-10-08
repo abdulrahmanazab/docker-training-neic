@@ -17,7 +17,7 @@ echo dockremap:500000:65536 > /etc/subgid
 For this mapping, root (UID 0) will be mapped to UID 500000
 
 
-* For RHEL or CentOS 7.5-, Enable user namespaces on the RHEL7 host:
+* For RHEL or CentOS 7.4-, Enable user namespaces on the RHEL7 host:
   ```bash
   grubby --args="user_namespace.enable=1" --update-kernel="$(grubby --default-kernel)"
   reboot
