@@ -32,8 +32,9 @@ For this mapping, root (UID 0) will be mapped to UID 500000
   ```
   grubby --args="namespace.unpriv_enable=1" --update-kernel=/boot/vmlinuz-3.10.0-693.5.2.el7.x86_64
   ```
-  * Edit /etc/sysctl.conf and add:
+  * Add a line to ``/etc/sysctl.conf``:
   ```bash
+  sudo cat >> /etc/sysctl.conf
   user.max_user_namespaces=1507
   ```
   * Execute the below set of commands:
