@@ -2,16 +2,21 @@
 
 Installation
 -------------
+* Install required packages
+```bash
+sudo yum install -y squashfs-tools libarchive-devel
+```
+
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
-VERSION=2.4.5
+VERSION=2.5.1
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar xvf singularity-$VERSION.tar.gz
 cd singularity-$VERSION
 ./configure --prefix=/usr/local
 make
 sudo make install
-
+cd
 ```
 Getting started
 ----------------
@@ -158,9 +163,11 @@ From: ubuntu:latest
 ```bash
 sudo singularity build ubuntu.img ubuntu.def
 ```
-Use a Singularity container on Abel/Colossus
----------------------------------------------
-On your VM:
+Use a Singularity container on your institutional cluster
+----------------------------------------------------------
+HPC clusters usually have a shared file system for data storage, software modules, and user homes. Each with a specific root directory. For example, the [Abel](http://www.uio.no/english/services/it/research/hpc/abel/) cluster at the university of Oslo has ``/usit`` for user homes, ``/cluster`` for software modules, ``/work`` as the scatch directory for HPC jobs, and ``/projects`` for data storage. For a singularity container to work on your cluster, those root directories **need** to exist on the container. This exercise works for the Abel cluster. You may do similar procedure for your institutional cluster.
+
+* On your VM:
 
 ```bash
 docker search bowtie2
@@ -172,7 +179,7 @@ Singularity bowtie2.simg:/root> exit
 
 scp bowtie2.simg <abel-user>@abel.uio.no:~/
 ```
-Now go to Abel:
+* Now go to Abel:
 
 ```bash
 ssh <abel-user>@abel.uio.no
