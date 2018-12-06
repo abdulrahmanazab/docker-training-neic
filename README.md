@@ -17,3 +17,4 @@ Tutorial contents
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/docker.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/docker-htcondor.md)
 * [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity.md)
+* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-openmpi.md)
