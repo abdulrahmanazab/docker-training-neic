@@ -56,16 +56,16 @@ sudo singularity exec -w -B /home ~/ubuntu.simg ldconfig
 ```
 * Test openmpi
 ```bash
-singularity exec ~/ubuntu.simg mpicc examples/ring_c.c -o ring
-singularity exec ~/ubuntu.simg mpirun -np 2 ring
+singularity exec ~/ubuntu.simg mpicc examples/hello_c.c -o hello
+singularity exec ~/ubuntu.simg mpirun -np 2 hello
 ```
 Use openmpi from the host with container processes
 ---------------------------------------------------
 * Copy the ring binary to ``/usr/bin`` inside the container
 ```bash
-sudo singularity exec -w -B /home ~/ubuntu.simg cp ./ring /usr/bin/ring
+sudo singularity exec -w -B /home ~/ubuntu.simg cp ./hello /usr/bin/hello
 ```
 * Run mpirun
 ```bash
-mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/ring
+mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/hello
 ```
