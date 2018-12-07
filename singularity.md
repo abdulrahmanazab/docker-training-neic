@@ -163,6 +163,18 @@ From: ubuntu:latest
 ```bash
 sudo singularity build ubuntu.img ubuntu.def
 ```
+Bind mounts
+------------
+Here’s an example of using the ``-B`` option and binding ``/tmp`` on the host to ``/scratch`` in the container:
+```bash
+$ singularity shell -B /tmp:/scratch /tmp/Centos7-ompi.img
+Singularity: Invoking an interactive shell within container...
+
+Singularity.Centos7-ompi.img> ls /scratch
+ssh-7vywtVeOez  systemd-private-cd84c81dda754fe4a7a593647d5a5765-ntpd.service-12nMO4
+```
+More: [File sharing](http://singularity.lbl.gov/docs-mount)
+
 Use a Singularity container on your institutional cluster
 ----------------------------------------------------------
 HPC clusters usually have a shared file system for data storage, software modules, and user homes. Each with a specific root directory. For example, the [Abel](http://www.uio.no/english/services/it/research/hpc/abel/) cluster at the university of Oslo has ``/usit`` for user homes, ``/cluster`` for software modules, ``/work`` as the scatch directory for HPC jobs, and ``/projects`` for data storage. For a singularity container to work on your cluster, those root directories **need** to exist on the container. This exercise works for the Abel cluster. You may do similar procedure for your institutional cluster.
@@ -206,10 +218,6 @@ bash-4.1$
 ```
 * Submit a [test singularity job](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity-slurm-abel.sh) to slurm on abel
 
-More ...
--------------
-* [File sharing](http://singularity.lbl.gov/docs-mount)
-
 Useful links
 -------------
-* [Intro video](http://singularity.lbl.gov/2015-singularity-intro-video)
+* [Docs](https://www.sylabs.io/docs/)
