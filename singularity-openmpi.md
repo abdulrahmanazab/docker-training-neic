@@ -1,4 +1,4 @@
-# Singularity Open MPI exercise
+# Singularity with Open MPI
 
 In this exercise you will install Open MPI on your host/VM, create a singularity container with Open MPI installed, then execute mpirun from the host with the parallel processes running in containers. 
 First, let's start with a [python based MPI example](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/python-mpi-example-abel.md)
@@ -70,3 +70,4 @@ sudo singularity exec -w -B /home ~/ubuntu.simg cp ./hello /usr/bin/hello
 ```bash
 mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/hello
 ```
+**Exercise: Do the same on Abel**
