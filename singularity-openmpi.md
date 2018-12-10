@@ -70,4 +70,6 @@ sudo singularity exec -w -B /home ~/ubuntu.simg cp ./hello /usr/bin/hello
 ```bash
 mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/hello
 ```
-**Exercise: Do the same on Abel**
+Exercise: Do the same on Abel
+------------------------------
+* [Slurm script to run the Hello MPI on Abel](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-mpi-slurm.sh)
