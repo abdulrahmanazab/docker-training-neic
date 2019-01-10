@@ -18,8 +18,8 @@ RUN wget -q -O bowtie2.zip http://sourceforge.net/projects/bowtie-bio/files/bowt
 	rm bowtie2.zip 
 ENV PATH $PATH:/opt/bowtie2 
 ```
-4. Now go to [Docker hub](https://hub.docker.com/), link your Docker hub account to your ``bowtie2-test`` git repo 
-5. In the *build settings* tab, trigger a new build, then keep an eye on the *Build details* tab
+4. Now go to [Docker hub](https://hub.docker.com/), create a new repository ``bowtie2-test`` 
+5. In the *build settings*, link your new Docker hub repo to the ``bowtie2-test`` git repo. Trigger a new build, then keep an eye on the *Build details* tab
 6. Once the build is done, check the build details. If successful, make sure that the Dockerfile contents are copied in the *Dockerfile* tab
 7. Go to *settings* tab, and make the repo public
 8. Go to your VM and run ``docker search <your-docker-id>`` and you get an output like this:
