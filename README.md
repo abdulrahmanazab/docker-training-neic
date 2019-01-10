@@ -1,5 +1,5 @@
 
-# Containers Tutorial - OncoImmunity 2018
+# Containers Tutorial - Research Bazaar 2019
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
@@ -14,7 +14,7 @@ ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/docker.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/docker-htcondor.md)
-* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity.md)
-* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-openmpi.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/docker.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/docker-htcondor.md)
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/singularity.md)
+* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/singularity-openmpi.md)
