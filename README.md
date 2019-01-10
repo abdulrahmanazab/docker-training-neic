@@ -15,6 +15,6 @@ ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/docker.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/docker-htcondor.md)
 * [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/singularity.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/docker-htcondor.md)
 * [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/singularity-openmpi.md)
