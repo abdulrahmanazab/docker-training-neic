@@ -216,7 +216,7 @@ Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
 Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
 bash-4.1$
 ```
-* Submit a [test singularity job](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity-slurm-abel.sh) to slurm on abel
+* Submit a [test singularity job](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2019/singularity-slurm-simple.sbatch) to slurm on abel
 
 Useful links
 -------------
