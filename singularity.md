@@ -186,7 +186,7 @@ docker search bowtie2
 ...
 sudo singularity build -w bowtie2.simg docker://genomicpariscentre/bowtie2
 sudo singularity shell -w bowtie2.simg
-Singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net
+Singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net /projects
 Singularity bowtie2.simg:/root> exit
 
 scp bowtie2.simg <abel-user>@abel.uio.no:~/
