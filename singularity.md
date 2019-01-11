@@ -4,7 +4,7 @@ Installation
 -------------
 * Install required packages
 ```bash
-sudo yum install -y squashfs-tools libarchive-devel
+sudo yum install -y git gcc wget squashfs-tools libarchive-devel
 ```
 
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
