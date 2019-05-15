@@ -12,7 +12,9 @@ sudo yum -y update && sudo yum -y install \
     libuuid-devel \
     openssl-devel \
     libseccomp-devel \
-    squashfs-tools
+    squashfs-tools \
+    epel-release \
+    golang
 ```
 
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
@@ -24,11 +26,15 @@ wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singula
     sudo rpm --install -vh ~/rpmbuild/RPMS/x86_64/singularity-${VERSION}-1.el7.x86_64.rpm && \
     rm -rf ~/rpmbuild singularity-${VERSION}*.tar.gz
 ```
+* [Installation admin guide](https://www.sylabs.io/guides/3.1/admin-guide/admin_quickstart.html#installation)
+
 Getting started
 ----------------
 * See the interface
 ```bash
-$ Linux container platform optimized for High Performance Computing (HPC) and
+$ singularity help
+
+Linux container platform optimized for High Performance Computing (HPC) and
 Enterprise Performance Computing (EPC)
 
 Usage:
