@@ -4,65 +4,78 @@ Installation
 -------------
 * Install required packages
 ```bash
-sudo yum install -y git gcc wget squashfs-tools libarchive-devel
+sudo yum -y update && sudo yum -y install \
+    wget \
+    rpm-build \
+    git \
+    gcc \
+    libuuid-devel \
+    openssl-devel \
+    libseccomp-devel \
+    squashfs-tools
 ```
 
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
-VERSION=2.6.1
-wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
-tar xvf singularity-$VERSION.tar.gz
-cd singularity-$VERSION
-./configure --prefix=/usr/local
-make
-sudo make install
-cd
+export VERSION=3.0.2  # this is the singularity version, change as you need
+
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    rpmbuild -tb singularity-${VERSION}.tar.gz && \
+    sudo rpm --install -vh ~/rpmbuild/RPMS/x86_64/singularity-${VERSION}-1.el7.x86_64.rpm && \
+    rm -rf ~/rpmbuild singularity-${VERSION}*.tar.gz
 ```
 Getting started
 ----------------
 * See the interface
 ```bash
-$ singularity --help
-USAGE: singularity [global options...] <command> [command options...] ...
+$ Linux container platform optimized for High Performance Computing (HPC) and
+Enterprise Performance Computing (EPC)
 
-GLOBAL OPTIONS:
-    -d|--debug    Print debugging information
-    -h|--help     Display usage summary
-    -s|--silent   Only print errors
-    -q|--quiet    Suppress all normal output
-       --version  Show application version
-    -v|--verbose  Increase verbosity +1
-    -x|--sh-debug Print shell wrapper debugging information
+Usage:
+  singularity [global options...]
 
-GENERAL COMMANDS:
-    help       Show additional help for a command or container                  
-    selftest   Run some self tests for singularity install                      
+Description:
+  Singularity containers provide an application virtualization layer enabling
+  mobility of compute via both application and environment portability. With
+  Singularity one is capable of building a root file system that runs on any
+  other Linux system where Singularity is installed.
 
-CONTAINER USAGE COMMANDS:
-    exec       Execute a command within container                               
-    run        Launch a runscript within container                              
-    shell      Run a Bourne shell within container                              
-    test       Launch a testscript within container                             
+Options:
+  -d, --debug              print debugging information (highest verbosity)
+  -h, --help               help for singularity
+  -q, --quiet              suppress normal output
+  -s, --silent             only print errors
+  -t, --tokenfile string   path to the file holding your sylabs
+                           authentication token (default
+                           "/home/cloud-user/.singularity/sylabs-token")
+  -v, --verbose            print additional information
 
-CONTAINER MANAGEMENT COMMANDS:
-    apps       List available apps within a container                           
-    bootstrap  *Deprecated* use build instead                                   
-    build      Build a new Singularity container                                
-    check      Perform container lint checks                                    
-    inspect    Display a container's metadata                                   
-    mount      Mount a Singularity container image                              
-    pull       Pull a Singularity/Docker container to $PWD                      
+Available Commands:
+  build       Build a new Singularity container
+  capability  Manage Linux capabilities on containers
+  exec        Execute a command within container
+  help        Help about any command
+  inspect     Display metadata for container if available
+  instance    Manage containers running in the background
+  keys        Manage OpenPGP key stores
+  pull        Pull a container from a URI
+  push        Push a container to a Library URI
+  run         Launch a runscript within container
+  run-help    Display help for container if available
+  search      Search the library
+  shell       Run a Bourne shell within container
+  sign        Attach cryptographic signatures to container
+  test        Run defined tests for this particular container
+  verify      Verify cryptographic signatures on container
+  version     Show application version
 
-COMMAND GROUPS:
-    image      Container image command group                                    
-    instance   Persistent instance command group                                
+Examples:
+  $ singularity help <command>
+      Additional help for any Singularity subcommand can be seen by appending
+      the subcommand name to the above command.
 
 
-CONTAINER USAGE OPTIONS:
-    see singularity help <command>
-
-For any additional help or support visit the Singularity
-website: http://singularity.lbl.gov/
+For additional help or support, please visit https://www.sylabs.io/docs/
 ```
 * Get help
 ```bash
