@@ -280,12 +280,14 @@ HPC clusters usually have a shared file system for data storage, software module
 ```bash
 docker search bowtie2
 ...
-sudo singularity build -w bowtie2.simg docker://genomicpariscentre/bowtie2
-sudo singularity shell -w bowtie2.simg
-Singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net /projects
-Singularity bowtie2.simg:/root> exit
+## sudo singularity build -w bowtie2.simg docker://genomicpariscentre/bowtie2
+sudo singularity build --sandbox bowtie2/ docker://genomicpariscentre/bowtie2
+sudo singularity shell -w bowtie2/
+singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net /projects
+singularity bowtie2.simg:/root> exit
+sudo singularity build bowtie2.sif bowtie2/
 
-scp bowtie2.simg <abel-user>@abel.uio.no:~/
+scp bowtie2.sif <abel-user>@abel.uio.no:~/
 ```
 * Now go to Abel:
 
