@@ -153,27 +153,86 @@ $ singularity build lolcow.sif docker://godlovedc/lolcow
 ```
 * Interact with containers
 ```bash
-$ cat /etc/redhat-release 
-CentOS Linux release 7.2.1511 (Core) 
-$ singularity shell docker://ubuntu:latest
-library/ubuntu:latest
-Downloading layer: sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4
-Downloading layer: sha256:9f03ce1741bf604c84258a4c4f1dc98cc35aebdd76c14ed4ffeb6bc3584c1f9b
-Downloading layer: sha256:61e032b8f2cb04e7a2d4efa83eb6837c6b92bd1553cbe46cffa76121091d8301
-Downloading layer: sha256:50de990d7957c304603ac78d094f3acf634c1261a3a5a89229fa81d18cdb7945
-Downloading layer: sha256:3a80a22fea63572c387efb1943e6095587f9ea8343af129934d4c81e593374a4
-Downloading layer: sha256:cad964aed91d2ace084302c587dfc502b5869c5b1d15a1f0e458a45e3cadfaa6
-Singularity: Invoking an interactive shell within container...
+$singularity exec bowtie.sif bowtie2 --version
+/miniconda/bin/bowtie2-align-s version 2.3.4.3
+64-bit
+Built on default-985f7a91-f7b9-4ecf-bdfc-9e83887f2387
+Thu Sep 20 02:31:58 UTC 2018
+Compiler: gcc version 4.8.2 20140120 (Red Hat 4.8.2-15) (GCC)
+Options: -O3 -m64 -msse2 -funroll-loops -g3  -DBOOST_MATH_DISABLE_FLOAT128 -m64 -fPIC -std=c++98 -DPOPCNT_CAPABILITY -DWITH_TBB -DNO_SPINLOCK -DWITH_QUEUELOCK=1
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
 
-Singularity.ubuntu:latest> cat /etc/lsb-release
-DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=16.04
-DISTRIB_CODENAME=xenial
-DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
-Singularity.ubuntu:latest> which apt-get
-/usr/bin/apt-get
-Singularity.ubuntu:latest> exit
+$ singularity shell docker://genomicpariscentre/bowtie2
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+Getting image source signatures
+Copying blob sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4
+ 32 B / 32 B [==============================================================] 0s
+Copying blob sha256:3a2f32a545118c8c188c752e7dc358aa16646c75120745a6450f79c412284e8f
+ 41.59 MiB / 41.59 MiB [====================================================] 4s
+Copying blob sha256:2e674b483741e5b67d285f2f67712faf7e2055644e40b580e43be3e2897d9fe6
+ 56.50 KiB / 56.50 KiB [====================================================] 0s
+.....
+Skipping fetch of repeat blob sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4
+Copying config sha256:0db9e54682b0d34c67c033907fe5e6a2afafd3444de2872a09c5aaac8aa5bff4
+ 6.15 KiB / 6.15 KiB [======================================================] 0s
+Writing manifest to image destination
+Storing signatures
+INFO:    Creating SIF file...
+INFO:    Build complete: /home/cloud-user/.singularity/cache/oci-tmp/0a14633b467bc1425e5e3ae7e4f6b100b7e8399be9dc52068ca76972e7d11dd2/bowtie2_latest.sif
+
+Singularity bowtie2_latest.sif:~> bowtie2 --version
+/usr/local/bin/bowtie2-align-s version 2.2.4
+64-bit
+Built on fbc229a23508
+Wed Mar 25 10:48:32 UTC 2015
+Compiler: gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5)
+Options: -O3 -m64 -msse2  -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+Singularity bowtie2_latest.sif:~> exit
+exit
 ```
+* ``exec`` also works with the ``shub://`` and ``docker://`` URIs. This creates an ephemeral container that executes a command and disappears.
+```bash
+$ singularity exec shub://singularityhub/ubuntu cat /etc/os-release
+```
+* **Creating writable ``--sandbox`` directories:**
+Remote to sandbox:
+```bash
+$ sudo singularity build --sandbox lolcow/ library://sylabs-jms/testing/lolcow
+$ sudo singularity shell --writable lolcow/
+```
+Local SIF to sandbox:
+```bash
+$ sudo singularity build --sandbox bowtie bowtie.sif
+$ sudo singularity shell --writable bowtie/
+```
+Sandbox to SIF:
+```bash
+$ sudo singularity build lolcow.sif lolcow/
+```
+* **Singularity recipes:**
+```bash
+cat >> ubuntu.def
+BootStrap: docker
+From: ubuntu:16.04
+
+%runscript
+    echo "This is what happens when you run the container..."
+    
+
+%post
+    echo "Hello from the container"
+    echo "Install additional software here"
+    # This part is for Abel and colossus clusters at UiO:
+    mkdir /cluster /work /tsd /usit /projects
+```
+* Build the container from the def file
+```bash
+sudo singularity build ubuntu.img ubuntu.def
+```
+
+
 * Interact with a pulled image
 ```bash
 $ singularity pull --name hello-world.simg shub://vsoch/hello-world
@@ -199,32 +258,7 @@ dev		   lib	 media	     proc  sbin  sys	      var
 $ singularity exec shub://singularityhub/ubuntu cat /etc/os-release
 ```
 
-Singularity recipes
-------------------
-Read the docs [here](http://singularity.lbl.gov/quickstart#singularity-recipes)
 
-Docker example:
-
-* Create a ubuntu (from docker) def file
-```bash
-cat >> ubuntu.def
-BootStrap: docker
-From: ubuntu:latest
-
-%runscript
-    echo "This is what happens when you run the container..."
-    
-
-%post
-    echo "Hello from the container"
-    echo "Install additional software here"
-    # This part is for Abel and colossus clusters at UiO:
-    mkdir /cluster /work /tsd /usit /projects
-```
-* Build the container from the def file
-```bash
-sudo singularity build ubuntu.img ubuntu.def
-```
 Bind mounts
 ------------
 Here’s an example of using the ``-B`` option and binding ``/tmp`` on the host to ``/scratch`` in the container:
