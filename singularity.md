@@ -163,6 +163,10 @@ From: ubuntu:latest
 ```bash
 sudo singularity build ubuntu.img ubuntu.def
 ```
+Signing and Verifying Containers
+---------------------------------
+[User guide](https://www.sylabs.io/guides/3.2/user-guide/signNverify.html)
+
 Bind mounts
 ------------
 Here’s an example of using the ``-B`` option and binding ``/tmp`` on the host to ``/scratch`` in the container:
