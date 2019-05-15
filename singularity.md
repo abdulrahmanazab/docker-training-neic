@@ -1,7 +1,7 @@
 # Singularity
 
-Installation
--------------
+Install
+--------
 * Install required packages
 ```bash
 sudo yum -y update && sudo yum -y install \
@@ -27,6 +27,23 @@ wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singula
     rm -rf ~/rpmbuild singularity-${VERSION}*.tar.gz
 ```
 * [Installation admin guide](https://www.sylabs.io/guides/3.1/admin-guide/admin_quickstart.html#installation)
+
+Update
+-------
+Updating Singularity is just like installing it, but with the ``--upgrade`` flag instead of ``--install``. Make sure you pick the latest tarball from the [Github relese page](https://github.com/sylabs/singularity/releases)
+
+```bash
+export VERSION=3.2.0  # the newest singularity version, change as you need
+
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    rpmbuild -tb singularity-${VERSION}.tar.gz && \
+    sudo rpm --upgrade -vh ~/rpmbuild/RPMS/x86_64/singularity-${VERSION}-1.el7.x86_64.rpm && \
+    rm -rf ~/rpmbuild singularity-${VERSION}*.tar.gz
+```
+* Erase
+```bash
+sudo rpm --erase singularity
+```
 
 Getting started
 ----------------
@@ -91,22 +108,48 @@ $ singularity -h <subcommand>
 $ singularity <subcommand> --help
 $ singularity <subcommand -h
 ```
-* Download pre-built images
+* Download pre-built containers
 
 From singularity hub:
 ```bash
-$ singularity pull shub://vsoch/hello-world   # pull with default name, vsoch-hello-world-master.simg
-$ singularity pull --name hello.simg shub://vsoch/hello-world   # pull with custom name
+$ singularity pull shub://vsoch/hello-world   # pull with default name, vsoch-hello-world-master.sif
+$ singularity pull --name hello.sif shub://vsoch/hello-world   # pull with custom name
 ```
 From Docker hub:
 ```bash
 $ singularity pull docker://godlovedc/lolcow  # with default name
-$ singularity pull --name funny.simg docker://godlovedc/lolcow # with custom name
+$ singularity pull --name funny.sif docker://godlovedc/lolcow # with custom name
 ```
-* Build images
+
+Build a container
+------------------
+The ``build`` command can produce containers in two different formats:
+- compressed read-only Singularity Image File (SIF) format suitable for production (default)
+- writable (ch)root directory called a sandbox for interactive development ( ``--sandbox`` option)
+
+Build options:
+* **Build from a remote repository:** The target defines the method that build uses to create the container. It can be one of the following:
+
+    * ``library://`` to build from the Container Library
+    * ``docker://`` to build from Docker Hub
+    * ``shub://`` to build from Singularity Hub
+
+Search for a container
 ```bash
-$ singularity build hello-world.simg shub://vsoch/hello-world
-$ singularity build lolcow.simg docker://godlovedc/lolcow
+$ singularity search bowtie
+No users found for 'bowtie'
+
+No collections found for 'bowtie'
+
+Found 1 containers for 'bowtie'
+	library://kavall86/default/bowtie2.simg
+		Tags: latest
+```
+Build a container
+```bash
+$ singularity build bowtie.sif library://kavall86/default/bowtie2.simg
+$ singularity build hello-world.sif shub://vsoch/hello-world
+$ singularity build lolcow.sif docker://godlovedc/lolcow
 ```
 * Interact with containers
 ```bash
