@@ -271,6 +271,10 @@ ssh-7vywtVeOez  systemd-private-cd84c81dda754fe4a7a593647d5a5765-ntpd.service-12
 ```
 More: [File sharing](http://singularity.lbl.gov/docs-mount)
 
+Signing and Verifying Containers
+---------------------------------
+[User Guide](https://www.sylabs.io/guides/3.2/user-guide/signNverify.html)
+
 Use a Singularity container on your institutional cluster
 ----------------------------------------------------------
 HPC clusters usually have a shared file system for data storage, software modules, and user homes. Each with a specific root directory. For example, the [Abel](http://www.uio.no/english/services/it/research/hpc/abel/) cluster at the university of Oslo has ``/usit`` for user homes, ``/cluster`` for software modules, ``/work`` as the scatch directory for HPC jobs, and ``/projects`` for data storage. For a singularity container to work on your cluster, those root directories **need** to exist on the container. This exercise works for the Abel cluster. You may do similar procedure for your institutional cluster.
