@@ -1,5 +1,5 @@
 
-# Containers Tutorial - Research Bazaar 2019
+# Containers Tutorial - NeIC Conference 2019
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
