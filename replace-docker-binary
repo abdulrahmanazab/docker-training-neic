@@ -1,0 +1,15 @@
+yum install glibc-devel                                                                                                                                                                                              
+tar xzf shc-3.8.9.tgz                                                                                                                        
+cd shc-3.8.9                                                                                                                                
+make                                                                                                                                         
+make test                                                                                                                                    
+make install
+cd /bin
+mv docker docker-bin
+cat >> docker.sh
+  #! /usr/bin/bash                       
+  sudo -u p290-tsdfx docker-bin "$@"
+shc -T -e 31/12/2099 -f docker.sh
+mv docker.sh.x docker
+
+
