@@ -10,7 +10,7 @@ Connect to your VM
 ```bash
 chmod 600 docker-tutorial.pem 
 ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
-[cloud-user@docker-tutorial-terminal ~]$ ssh -i docker-tutorial.pem cloud-user@container-tutorial-[1-16]
+[cloud-user@docker-tutorial-terminal ~]$ ssh -i docker-tutorial.pem cloud-user@container-tutorial-[1-22]
 ```
 Tutorial contents
 ------------------
