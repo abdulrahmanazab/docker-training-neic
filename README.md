@@ -1,5 +1,5 @@
 
-# Containers Tutorial - NeIC/Tryggve 2019
+# Containers Tutorial - Research Bazaar, Oslo 2020
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
