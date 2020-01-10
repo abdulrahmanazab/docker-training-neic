@@ -14,7 +14,7 @@ ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-conference-2019/docker.md)
-* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-conference-2019/singularity.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-conference-2019/docker-htcondor.md)
-* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/neic-conference-2019/singularity-openmpi.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker.md)
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-htcondor.md)
+* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity-openmpi.md)
