@@ -1,5 +1,5 @@
 
-# Containers Tutorial - Research Bazaar, Oslo 2020
+# Containers Tutorial - PRACE training, 2021
 
 The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
