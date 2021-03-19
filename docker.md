@@ -38,9 +38,9 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 * You need to be a member of the docker group:
 ```bash
 $ sudo groupadd docker
-$ sudo usermod -aG docker cloud-user
+$ sudo usermod -aG docker centos
 $ exit
-$ ssh -i docker-tutorial.pem cloud-user@<IP-Address>
+$ ssh -i nrec.pem centos@<IP-Address>
 ```
 * Now you can use docker:
 ```bash
