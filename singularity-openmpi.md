@@ -23,13 +23,9 @@ mpirun -np 2 ring
 ```
 Create the ubuntu container
 ---------------------------
-Create an image file with 4 GiB size:
-```bash
-singularity image.create -s 4096 ~/ubuntu.simg
-```
 Build an *old* ubuntu container inside that image:
 ```bash
-sudo singularity build --sandbox ubuntu/ docker://ubuntu
+sudo singularity build --sandbox ubuntu/ docker://ubuntu:12.04
 ```
 Install Open MPI on the container
 ----------------------------------
