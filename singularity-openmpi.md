@@ -10,9 +10,9 @@ Here we install a bit old version of openmpi so that can match old installations
 # pre-requisites
 sudo yum groupinstall 'Development Tools'
 # Download openmpi 1.10.2
-wget https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.2.tar.bz2
-tar xvjf openmpi-1.10.2.tar.bz2
-cd openmpi-1.10.2
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.bz2
+tar xvjf openmpi-4.0.3.tar.bz2
+cd openmpi-4.0.3
 # Install openmpi 
 ./configure --prefix=/usr/local
 make
@@ -29,15 +29,15 @@ singularity image.create -s 4096 ~/ubuntu.simg
 ```
 Build an *old* ubuntu container inside that image:
 ```bash
-sudo singularity build -w ~/ubuntu.simg docker://ubuntu:12.04
+sudo singularity build --sandbox ubuntu/ docker://ubuntu
 ```
 Install Open MPI on the container
 ----------------------------------
 Here we install the *same* openmpi version, that we installed on the host, on the container.
 * Install the pre-requisites:
 ```bash
-sudo singularity exec -w ~/ubuntu.simg apt-get update
-sudo singularity exec -w ~/ubuntu.simg apt-get install build-essential
+sudo singularity exec --writable ubuntu/ apt-get update
+sudo singularity exec --writable ubuntu/ build-essential
 ```
 * Make another directory for the openmpi source/build on the ubuntu container
 ```bash
@@ -46,30 +46,31 @@ cd ~/openmpi-ubuntu
 ```
 * Download and install openmpi
 ```bash
-wget https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.2.tar.bz2
-tar xvjf openmpi-1.10.2.tar.bz2
-cd openmpi-1.10.2
-singularity exec ~/ubuntu.simg ./configure --prefix=/usr/local
-singularity exec ~/ubuntu.simg make
-sudo singularity exec -w -B /home ~/ubuntu.simg make install
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.bz2
+tar xvjf openmpi-4.0.3.tar.bz2
+cd openmpi-4.0.3.tar.bz2
+singularity exec ubuntu/ ./configure --prefix=/usr/local
+singularity exec ubuntu/ make
+sudo singularity exec -B /home --writable ubuntu/ make install
 # for mpicc to work:
-sudo singularity exec -w -B /home ~/ubuntu.simg ldconfig
+sudo singularity exec -B /home --writable ubuntu/ ldconfig
 ```
 * Test openmpi
 ```bash
-singularity exec ~/ubuntu.simg mpicc examples/hello_c.c -o hello
-singularity exec ~/ubuntu.simg mpirun -np 2 hello
+singularity exec ubuntu/ mpicc examples/hello_c.c -o hello
+singularity exec ubuntu/ mpirun -np 2 hello
 ```
 Use openmpi from the host with container processes
 ---------------------------------------------------
 * Copy the ring binary to ``/usr/bin`` inside the container
 ```bash
-sudo singularity exec -w -B /home ~/ubuntu.simg cp ./hello /usr/bin/hello
+sudo singularity exec -B /home --writable ubuntu/ cp ./hello /usr/bin/hello
 ```
 * Run mpirun
 ```bash
 mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/hello
 ```
-Exercise: Do the same on Abel
+Exercise: Do the same on SAGA
 ------------------------------
 * [Slurm script to run the Hello MPI on Abel](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-mpi-slurm.sh)
+* [Run singularity container on SAGA](https://documentation.sigma2.no/software/containers.html)
