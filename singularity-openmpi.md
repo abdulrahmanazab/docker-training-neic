@@ -68,5 +68,5 @@ mpirun -np 2 singularity exec ~/ubuntu.simg /usr/bin/hello
 ```
 Exercise: Do the same on SAGA
 ------------------------------
-* [Slurm script to run the Hello MPI on Abel](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-mpi-slurm.sh)
+* [Slurm script to run the Hello MPI on Abel (old)](https://github.com/abdulrahmanazab/docker-training-neic/blob/OncoImmunity-2018/singularity-mpi-slurm.sh)
 * [Run singularity container on SAGA](https://documentation.sigma2.no/software/containers.html)
