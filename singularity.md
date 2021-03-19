@@ -19,7 +19,7 @@ sudo yum -y update && sudo yum -y install \
 
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
 ```bash
-export VERSION=3.0.2  # this is the singularity version, change as you need
+export VERSION=3.7.2  # this is the singularity version, change as you need
 
 wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
     rpmbuild -tb singularity-${VERSION}.tar.gz && \
