@@ -14,7 +14,8 @@ sudo yum -y update && sudo yum -y install \
     libseccomp-devel \
     squashfs-tools \
     epel-release \
-    golang
+    golang \
+    cryptsetup
 ```
 
 * Install the release of your choice. The releases page is [here](https://github.com/singularityware/singularity/releases)
