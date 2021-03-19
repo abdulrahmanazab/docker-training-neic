@@ -14,7 +14,7 @@ ssh -i nrec.pem centos@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/docker.md)
-* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-htcondor.md)
-* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity-openmpi.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/docker.md)
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/singularity.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/docker-htcondor.md)
+* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/singularity-openmpi.md)
