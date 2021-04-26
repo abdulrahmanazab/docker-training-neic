@@ -1,4 +1,4 @@
-# Singularity with GPU 
+# Singularity GPU support
 
 GPU support in a container
 --------------------------
