@@ -18,3 +18,4 @@ Tutorial contents
 * [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-htcondor.md)
 * [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/singularity-openmpi.md)
+* [Singularity GPU support] (https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/singularity-gpu.md)
