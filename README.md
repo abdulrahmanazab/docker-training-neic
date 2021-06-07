@@ -1,7 +1,7 @@
 
 # Containers Tutorial - PRACE training, 2021
 
-The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
+The training infrastructure is offered by [Piz Daint](https://www.cscs.ch/computers/piz-daint/) at CSCS, Switserland.
 
 Connect to your VM
 --------------------
