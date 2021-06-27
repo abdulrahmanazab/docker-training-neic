@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --account=class02
+#SBATCH -C gpu
+
+module purge
+module load daint-gpu
+module load singularity
+
+singularity exec --nv /scratch/snx3000/class102/singularity/exercise_04_GPUBurn/ex_04.sif /opt/gpu-burn/gpu_burn.sh

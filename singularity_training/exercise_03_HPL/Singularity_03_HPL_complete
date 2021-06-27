@@ -1,0 +1,113 @@
+Bootstrap: docker
+From: centos:centos7
+IncludeCmd: yes
+
+%labels
+AUTHOR g.muscianisi@cineca.it,f.cola@cineca.it
+VERSION 1.0
+Event HPC Workshop on Containers and Unikernels 
+Date July 5th-9th, 2021
+ContainerName Exercise 03 HPL complete solution
+
+
+%files
+  Make.Linux_blas /workdir/Make.Linux_blas
+  make.inc /workdir/make.inc
+
+%post
+  yum install -y vim which wget tar bzip2
+
+  ####### GNU 7.3.1 installation #######
+  # 1. Install a package with repository for your system:
+  # On CentOS, install package centos-release-scl available in CentOS repository:
+  yum -y install centos-release-scl
+
+  # 2. Install the collection:
+  yum -y install epel-release                                # add epel repository
+  yum -y install devtoolset-7                                # gcc v. 7.3.0 
+  yum -y install libibverbs.x86_64
+  yum -y install libpsm2-devel.x86_64               
+  yum -y install opa-fastfabric.x86_64
+  yum -y install infinipath-psm-devel.x86_64
+  yum -y install libfabric-devel.x86_64
+  yum -y install libsysfs.x86_64
+  yum -y install slurm-pmi-devel.x86_64
+  yum -y install libffi-devel.x86_64
+  yum -y install rdma-core-devel.x86_64
+
+  
+  ###### GNU 7.3.1 General environment variables settings #######
+  export PATH=/opt/rh/devtoolset-7/root/usr/bin${PATH:+:${PATH}}
+  export MANPATH=/opt/rh/devtoolset-7/root/usr/share/man:${MANPATH}
+  export INFOPATH=/opt/rh/devtoolset-7/root/usr/share/info${INFOPATH:+:${INFOPATH}}
+  
+  ####### Test the location and version of your GNU compiler #######
+  which gcc gcc --version
+  
+  #d###### Create a work directory #######
+  mkdir -p /workdir && cd /workdir
+  wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
+  wget http://www.netlib.org/blas/blas-3.8.0.tgz
+  wget https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz
+  
+  ## build openmpi-3.1.4
+  cd /workdir
+  tar -xvf /workdir/openmpi-3.1.4.tar.gz
+  cd openmpi-3.1.4
+  export FC="gfortran"
+  export CC="gcc"
+  export CFLAGS="-g -O2 -march=core-avx2"
+  export CXXFLAGS="$CFLAGS"
+  export FCFLAGS="-g -O2 -march=core-avx2"
+  export LDFLAGS="-g -O2 -ldl -march=core-avx2"
+   ./configure --prefix=/opt/openmpi/3.1.4 FC=gfortran CC=gcc  --with-psm2=yes --with-memory-manager=none  --enable-static=yes --with-pmix --with-pmi --with-pmi-libdir="/usr/lib64/" --enable-shared --with-verbs --enable-mpirun-prefix-by-default --disable-dlopen
+  make -j 8
+  make install
+
+  export PATH=/opt/openmpi/3.1.4/bin:${PATH}
+  export LD_LIBRARY_PATH=/opt/openmpi/3.1.4/lib:${LD_LIBRARY_PATH}
+  export MANPATH=/opt/openmpi/3.1.4/share/man:${MANPATH}
+  export INFOPATH=/opt/openmpi/3.1.4/share/info:${INFOPATH}
+  
+  ## build blas-3.8.0
+  cd /workdir
+  tar -xvf  blas-3.8.0.tgz 
+  cd BLAS-3.8.0
+##  sed -i 's/OPTS     = -O3/OPTS     = -O3 -march=core-avx2/g' make.inc
+##  sed -i 's/BLASLIB      = blas$(PLAT).a/BLASLIB      = libblas.a/g' make.inc
+  cp /workdir/make.inc .
+  make all 
+  gfortran -shared -fPIC -O3 -march=core-avx2 *.f -o libblas.so
+  mkdir -p /opt/blas/3.8.0/lib
+  cp libblas.so libblas.a /opt/blas/3.8.0/lib/
+
+  export LD_LIBRARY_PATH=/opt/blas/3.8.0/lib:${LD_LIBRARY_PATH}
+
+  ## build hpl-2.3
+  cd /workdir
+  tar -xvf hpl-2.3.tar.gz
+  cd hpl-2.3
+  cp /workdir/Make.Linux_blas .
+  make arch=Linux_blas
+  mkdir -p /opt/hpl/2.3/bin
+  cp /workdir/hpl-2.3/bin/Linux_blas/xhpl /opt/hpl/2.3/bin/
+  export PATH=/opt/hpl/2.3/bin:${PATH}
+  export MANPATH=/workdir/hpl-2.3/man:${MANPATH}
+
+%environment
+  export PATH=/opt/rh/devtoolset-7/root/usr/bin${PATH:+:${PATH}}
+  export MANPATH=/opt/rh/devtoolset-7/root/usr/share/man:${MANPATH}
+  export INFOPATH=/opt/rh/devtoolset-7/root/usr/share/info${INFOPATH:+:${INFOPATH}}
+
+  export PATH=/opt/openmpi/3.1.4/bin:${PATH}
+  export LD_LIBRARY_PATH=/opt/openmpi/3.1.4/lib:${LD_LIBRARY_PATH}
+  export MANPATH=/opt/openmpi/3.1.4/share/man:${MANPATH}
+  export INFOPATH=/opt/openmpi/3.1.4/share/info:${INFOPATH}
+  
+  export LD_LIBRARY_PATH=/opt/blas/3.8.0/lib:${LD_LIBRARY_PATH}
+
+  export PATH=/opt/hpl/2.3/bin:${PATH}
+  export MANPATH=/workdir/hpl-2.3/man:${MANPATH}
+
+%runscript
+  xhpl

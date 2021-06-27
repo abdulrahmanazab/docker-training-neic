@@ -1,0 +1,35 @@
+Bootstrap:docker
+From: nvidia/cuda:10.2-devel-centos7
+
+%labels
+AUTHOR g.muscianisi@cineca.it,f.cola@cineca.it
+VERSION v1.0
+Event HPC Workshop on Containers and Unikernels 
+Date July 5th-9th, 2021
+ContainerName Exercise 04 GPU Burn
+
+
+%post
+yum install -y  git
+mkdir -p /opt
+cd /opt
+git clone https://github.com/wilicc/gpu-burn.git
+cd gpu-burn
+
+# build gpu-burn
+make COMPUTE=60
+
+# create a run script
+cat << EOF > gpu_burn.sh
+#!/bin/bash
+cd /opt/gpu-burn
+./gpu_burn 120
+EOF
+
+chmod 755 gpu_burn.sh
+
+%environment
+export PATH=/opt/gpu-burn:${PATH}
+
+%runscript
+gpu_burn.sh
