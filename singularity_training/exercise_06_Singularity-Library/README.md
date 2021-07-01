@@ -1,5 +1,5 @@
-Exercise 09 - Singularity Library 
-===============================================================
+Exercise 06 - Singularity Library 
+=================================
 
 Goals:
 ------
@@ -20,7 +20,7 @@ As you can imagine the recipe cannot be upload as it is, because in the **%files
 We have to skip the %files section and there are 2 possibilities:
 
 1. do not copy "hello\_world\_openMPI.c" (this option is not always available) 
-2. use **wget** to copy the file inside the container from an external repository. In this case you can use the GitHub repository created for the exercise\_08
+2. use **wget** to copy the file inside the container from an external repository. In this case you can use the GitHub repository created for the exercise\_05
 
 		
 		mkdir -p /data && cd /data

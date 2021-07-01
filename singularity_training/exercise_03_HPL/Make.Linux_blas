@@ -81,9 +81,9 @@ HPLlib       = $(LIBdir)/libhpl.a
 # header files,  MPlib  is defined  to be the name of  the library to be
 # used. The variable MPdir is only used for defining MPinc and MPlib.
 #
-MPdir        = /opt/openmpi/3.1.4
+MPdir        = /usr
 MPinc        = -I$(MPdir)/include
-MPlib        = $(MPdir)/lib/libmpi.a
+MPlib        = $(MPdir)/lib/libmpi.so
 #
 # ----------------------------------------------------------------------
 # - Linear Algebra library (BLAS or VSIPL) -----------------------------
@@ -92,9 +92,9 @@ MPlib        = $(MPdir)/lib/libmpi.a
 # header files,  LAlib  is defined  to be the name of  the library to be
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
-LAdir        = /opt/blas/3.8.0
+LAdir        = /workdir/BLAS-3.8.0
 LAinc        =
-LAlib        = $(LAdir)/lib/libblas.a
+LAlib        = $(LAdir)/lib/libblas.so
 #
 # ----------------------------------------------------------------------
 # - F77 / C interface --------------------------------------------------
@@ -166,14 +166,14 @@ HPL_DEFS     = $(F2CDEFS) $(HPL_OPTS) $(HPL_INCLUDES)
 # - Compilers / linkers - Optimization flags ---------------------------
 # ----------------------------------------------------------------------
 #
-CC           = /opt/openmpi/3.1.4/bin/mpicc
+CC           = /usr/bin/mpicc
 CCNOOPT      = $(HPL_DEFS) 
-CCFLAGS      = $(HPL_DEFS) -O3 -march=core-avx2 -fopenmp -lpsm_infinipath -lrt -lopen-rte -lopen-pal -lfabric -lpsm2 -lm
+CCFLAGS      = $(HPL_DEFS) -O3 -fopenmp -lrt -lm
 #
 # On some platforms,  it is necessary  to use the Fortran linker to find
 # the Fortran internals used in the BLAS library.
 #
-LINKER       = /opt/openmpi/3.1.4/bin/mpifort
+LINKER       = /usr/bin/mpifort
 LINKFLAGS    = $(CCFLAGS)
 #
 ARCHIVER     = ar

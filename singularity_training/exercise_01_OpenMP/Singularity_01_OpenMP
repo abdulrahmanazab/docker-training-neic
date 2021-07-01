@@ -7,7 +7,7 @@ AUTHOR g.muscianisi@cineca.it
 VERSION 1.0
 Event HPC Workshop on Containers and Unikernels 
 Date July 5th-9th, 2021
-ContainerName Exercise 01 
+ContainerName Exercise 01 OpenMP complete solution 
 
 %files
 hello_world_openMP.c /data/
@@ -33,11 +33,12 @@ export LD_LIBRARY_PATH=/opt/rh/devtoolset-7/root/usr/lib:${LD_LIBRARY_PATH}
 which gcc 
 gcc --version 
 
+####### Compile the hello_world_openMP.c with gcc version 7 #######
+cd /data
+gcc -o hello_world_openMP.bin -fopenmp  hello_world_openMP.c
+
 ####### Create a workdir directory #######
 mkdir /workdir
-
-####### Custom directory needed for PizDaint #######
-mkdir -p /apps/daint/UES/xalt/xalt2/software/xalt/2.8.10 
 
 %environment
 

@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --ntasks=1
 #SBATCH --account=class02
 #SBATCH -C gpu
 

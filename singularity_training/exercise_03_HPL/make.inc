@@ -16,7 +16,7 @@ PLAT = _LINUX
 #  desired load options for your machine.
 #
 FORTRAN  = gfortran
-OPTS     = -O3 -march=core-avx2
+OPTS     = -O3 
 DRVOPTS  = $(OPTS)
 NOOPT    =
 LOADER   = gfortran

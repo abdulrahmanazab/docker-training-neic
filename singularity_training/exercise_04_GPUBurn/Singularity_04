@@ -3,7 +3,7 @@ From: nvidia/cuda:10.2-devel-centos7
 
 %labels
 AUTHOR g.muscianisi@cineca.it,f.cola@cineca.it
-VERSION v1.0
+VERSION v 2.0
 Event HPC Workshop on Containers and Unikernels 
 Date July 5th-9th, 2021
 ContainerName Exercise 04 GPU Burn
@@ -23,7 +23,7 @@ make COMPUTE=60
 cat << EOF > gpu_burn.sh
 #!/bin/bash
 cd /opt/gpu-burn
-./gpu_burn 120
+./gpu_burn 240
 EOF
 
 chmod 755 gpu_burn.sh

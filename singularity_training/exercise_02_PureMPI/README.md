@@ -1,158 +1,99 @@
-Exercise 03 - GNU 7 + OpenMPI Matrioska building process
-========================================================
+Exercise 02 - Pure MPI 'Hello world' Singularity container 
+==========================================================
 
-Goals:
-------
-1. Matrioska building
-2. MPI run on a single node (intra-node)
+Write the Singularity definition file
+-------------------------------------
 
-Matrioska building
-------------------
+The Bind MPI approach will be used to execute the Singularity MPI container on Piz Daint cluster.
 
-Starting from the container image built during the exercise 02, let's add in the container both the packages and the OpenMPI libraries needed to compile an MPI applciation and to run on GALILEO cluster. 
+On \$SCRATCH directory in Piz Daint, write a recipe with a pure MPI Hello World code, such that: 
 
-To do this, write a singularity definition file that has as bootstrapt the container image built during exercise 02.
-So, the HEADER of the recipe will be as : 
+1) use Debian Jessie as Base OS. As a bootstrap source, use the Debian release available in the Docker Hub [click here](https://hub.docker.com/_/debianhttps://hub.docker.com/_/debian).
 
-	Bootstrap: localimage
-	From: <local_path_to>/ex_02.sif 
-	IncludeCmd: yes
-	
-	... ...
+2) add your name as author of the container
 
-Then add the installation of the following packages: 
+3) update the system
 
-	yum -y install epel-release           
-	yum -y install libibverbs.x86_64
-	yum -y install libpsm2-devel.x86_64  
-	yum -y install opa-fastfabric.x86_64
-	yum -y install libfabric-devel.x86_64
-	yum -y install infinipath-psm-devel.x86_64
-	yum -y install libsysfs.x86_64
-	yum -y install slurm-pmi-devel.x86_64
-	yum -y install libffi-devel.x86_64
-	yum -y install rdma-core-devel.x86_64
+4) install the packages: file g++ gcc gfortran make gdb strace realpath wget ca-certificates --no-install-recommends 
 
-Now, add the instructions to download and install OpenMPI.  
-Due to the ABI (Application Binary Interface) compatibility with the OpenMPI version available on GALILEO, install the OpenMPI version 3.1.4 .
+5) install the MPICH version 3.4.2, configuring by the options '' --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3'' .
+The snippet of the steps for the installation are:
 
-Below are listed the commands needed to install OpenMPI, that must be added in the **%post** section of the new definition file. The url to use for downloading OpenMPI is https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
-
-	cd /workdir
-	wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
-	tar -xvf /workdir/openmpi-3.1.4.tar.gz
-	cd openmpi-3.1.4
-	export FC="gfortran"
-	export CC="gcc"
-	export CFLAGS="-g -O2 -march=core-avx2"
-	export CXXFLAGS="$CFLAGS"
-	export FCFLAGS="-g -O2 -march=core-avx2"
-	export LDFLAGS="-g -O2 -ldl -march=core-avx2"
-	./configure --prefix=/opt/openmpi/3.1.4 FC=gfortran CC=gcc  --with-psm2=yes --with-memory-manager=none  \
-                    --enable-static=yes --with-pmix --with-pmi --with-pmi-libdir="/usr/lib64/" \
-                    --enable-shared --with-verbs --enable-mpirun-prefix-by-default --disable-dlopen
-	make -j 8
+	wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz
+	tar xf mpich-3.4.2.tar.gz
+	cd mpich-3.4.2
+	./configure --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3
+	make -j$(nproc)
 	make install
+	ldconfig
 
-	export PATH=/opt/openmpi/3.1.4/bin:${PATH}
-	export LD_LIBRARY_PATH=/opt/openmpi/3.1.4/lib:${LD_LIBRARY_PATH}
-	export MANPATH=/opt/openmpi/3.1.4/share/man:${MANPATH}
-	export INFOPATH=/opt/openmpi/3.1.4/share/info:${INFOPATH}
- 
-
-Moreover, copy in the container the code **hello\_world\_MPI.c**, available in this repo directory (remember the **%files** section) and add in the recipe the command t compile such code: 
+6) Moreover, copy in the **/data** directory within the container the code **hello\_world\_MPI.c**, available in this repo directory (remember the **%files** section) and add in the recipe the command for compiling such code: 
 
 	mpicc -o hello_world_MPI.bin  hello_world_MPI.c
 
-Finally, build the container by the command:
 
-	$ sudo singularity build ex_03.sif Singularity_03
+Build the Singularity container 
+-------------------------------
 
-(Building time: ~20 minutes)
+Build the container on Piz Daint compute node using the fakeroot feature. 
 
-Remember that loading the previous image 'ex\_02.sif' implies that you will have already available all the software and environment variables installed during the exercise 2.  
+Submit an interactive job: 
 
+	$ srun -C gpu -A class02 --pty -u bash
 
-Interact with the container
----------------------------
+then, since the MPI BINDING approach is beeing used,  load the following modules: 
 
-After the buit was finished, check the correct software versions for gcc and mpi by the commands:
+	$ module load daint-gpu
+	$ module load singularity/3.6.4-daint
+ 	$ module unload xalt
 
-**GCC:**
+All the host network and mpi library are set and autatically binded into the container. 
 
-	$ singularity exec ex_03.sif gcc --version
+Build the container by using the command:
 
-	gcc (GCC) 7.3.1 20180303 (Red Hat 7.3.1-5)
-	Copyright (C) 2017 Free Software Foundation, Inc.
-	This is free software; see the source for copying conditions.  There is NO
-	warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-**MPI:**
-
-	$ singularity exec ex_03.sif mpirun --version
-	
-	mpirun (Open MPI) 3.1.4
-	Report bugs to http://www.open-mpi.org/community/help/
+	$ singularity build --fakeroot --fix-perms ex_02.sif Singularity_02
 
 
-Now execute the **hello\_world\_MPI.bin** with 4 processors by the command:
+Execute the Singularity container
+---------------------------------
 
-	$ singularity exec ex_3.sif mpirun -np 4 /data/hello_world_MPI.bin 
+### Batch Execution
 
-The output should be as: 
+To execute the 'Hello world' code present in the Singularity container just build, submit a Slurm job batch on Piz Daint. 
 
-	Hello world from processor <proc>, rank 1 out of 4 processors
-	Hello world from processor <proc>, rank 2 out of 4 processors
-	Hello world from processor <proc>, rank 3 out of 4 processors
-	Hello world from processor <proc>, rank 0 out of 4 processors
+Run the test on 2 nodes, asking for 4 tasks per node. In the job script remember to load the modules: 
+
+	$ module load daint-gpu
+	$ module load singularity/3.6.4-daint
+	$ module unload xalt
+
+Open a new shell in Piz Daint, write the slurm job batch script where the container will be executed by the command: 
+
+	$ srun singularity exec ex_02.sif /data/hello_world.bin  
+   
+Then, run the tests on a different number of nodes by changing the number of MPI tasks also. 
+
+Plese refer to <https://user.cscs.ch/access/running/piz_daint/> for additional informations about the job submission on Piz Daint. 
+
+### Interactive Execution
+
+To submit an interactive job, open a new shell in Piz Daint, load the modules: 
+
+	$ module load daint-gpu
+	$ module load singularity/3.6.4-daint
+	$ module unload xalt
+
+then type a command like: 
+
+	$ srun -C gpu -A class02 -N2 --ntasks-per-node=4 singularity exec ex_02.sif /data/hello_world_MPI.bin
+
 
 Solution
 --------
 
-In the file Singularity\_03\_complete in this repo, the full recipe is provided. 
+The complete solution of the exercise is in the recipe **Singularity\_02\_MPI**  available in this repo directory.
 
-
-Exercise 05 -  Transfer and run the container image on GALILEO HPC cluster
-==========================================================================
-
-Goals:
-1. Learn how to run a MPI singularity application on GALILEO multi-nodes
-
-Singularity exec on a HPC cluster multi-nodes
----------------------------------------------
-
-Now that you built a working parallel container (during exercise 03) you can copy your \*.sif local image into GALILEO and run it inside a job script. 
-
-Copy the SIF image from your laptop to your $HOME directory on Galileo by using the scp command:
-
-	$ scp /local path/to/<sif image> a08trb**@login.galileo.cineca.it:~/
-
-If you are using WindowsOS, you can transfer files to/from GALILEO using Filezilla or WinSCP.
-
-In the repo is available the template of the slurm job script. Dowload it on GALILEO and modify to adapt to your needs. 
-
-To run an MPI code multi nodes, you have to 
-
-1) load the singularity module 
-2) load the OpenMPI 3.1.4 module 
-3) run the MPI code on GALILEO using the singularity command in a form like:  
-
-		$ mpirun -np <num of mpi procs> singularity exec -B $TMPDIR <path_to_SIF image container_on GALILEO> ./your_app  
-   
-Note that on GALILEO the only directory binded by default to the container filesystem is $HOME. 
-
-Run the tests on a different number of nodes changing the number of MPI tasks accordingly:
-
-- run the test on 1 node,
-- run the test on 2 nodes,
-- run the test on 4 nodes.
-
-
-
-
-
-ON PIZDAINT: 
-srun -C gpu -A class02 --ntasks-per-node=8 singularity exec ex_03.sif mpirun -np 8 /data/hello_world_MPI.bin^C
+The slurm job batch script is also provided, named **job\_script\_ex\_02\_PureMPI.sh**.
 
 
 

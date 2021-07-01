@@ -1,0 +1,32 @@
+Bootstrap: docker
+From: debian:jessie
+
+%labels
+AUTHOR g.muscianisi@cineca.it
+VERSION 2.0
+Event HPC Workshop on Container and Unikernels
+Date July 5th-9th, 2021
+ContainerName Exercise 02 Pure MPI complete solution
+
+%files 
+hello_world_MPI.c /data/
+
+%post
+# Install software
+apt-get update
+apt-get install -y file g++ gcc gfortran make gdb strace realpath wget ca-certificates --no-install-recommends
+
+# Install mpich
+
+wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz
+tar xf mpich-3.4.2.tar.gz
+cd mpich-3.4.2
+./configure --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3
+make -j$(nproc)
+make install
+ldconfig
+
+# Build the hello world mpi code
+cd /data
+mpicc -o hello_world_MPI.bin hello_world_MPI.c
+   
