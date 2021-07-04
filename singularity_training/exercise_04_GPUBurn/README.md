@@ -23,7 +23,7 @@ Remember to export the right $PATH environment variable.
 Build and run on Piz Daint
 --------------------------
 
-Build the container on Piz Daint compute node with fakeroot, as in the previous exercises and run by submitting a job asking for 1 node. 
+Build the container on Piz Daint compute node with fakeroot, as in the previous exercises, the exec the gpu-burn executable by submitting a job asking for 1 node. 
 
 You can monitoring GPU usage with nvidia-smi tool:
 
@@ -32,7 +32,7 @@ You can monitoring GPU usage with nvidia-smi tool:
 
 Al alternative approach is to create an allocation and log onto the compute node directly, by using the command: 
 
-	$ srun -C gpu -A <account> --pty -u -N1 bash -l. 
+	$ srun -C gpu -A <account> --pty -u -N1 bash -l 
 
 This will give you an interactive shell on the compute node. There you can run your gpu\_burn directly and on the background: 
 
@@ -44,7 +44,7 @@ While gpu\_burn executes on the background you can run nvidia-smi to check what 
 Multi-stage build 
 ------------------
 
-We have seen during the exercise that the size of a container could be an inssue, expecially if you need to copy the image from your laptop to a HPC cluster. To reduce the size of the final image we can use multi-stage build.
+The size of a container could be an inssue, expecially if you need to copy the image from your laptop to a HPC cluster. To reduce the size of the final image we can use multi-stage build.
 Here you can find the Singularity guide about it <https://sylabs.io/guides/3.7/user-guide/definition_files.html#multi-stage-builds>
 
 The definition file Singularity\_04\_multistage is an example of how to use it. A devel version of cuda-10 container is used to compile the source code (gpu-burn), but we use the cuda-10-runtime image as bootstrap for the final image.
