@@ -24,7 +24,7 @@ We have to skip the %files section and there are 2 possibilities:
 
 ![modify the recipe](images/upload.png)
 
-When you recipe is ok click on **Build** and wait Singularity Library builds your container. When it has done pull the container on Galileo and test it.
+When you recipe is ok click on **Build** and wait Singularity Library builds your container. When it has done pull the container on an HPC cluster or workstation and test it.
 
 	singularity pull library://<account name>/<repo name>/<image name>
 
@@ -35,7 +35,7 @@ When you recipe is ok click on **Build** and wait Singularity Library builds you
 	singularity shell <image name>_latest.sif
 
 
-Now you can try to build the same container using the flag **--remote** from the command line of Galileo, but first you need to make a little set up.
+Now you can try to build the same container using the flag **--remote** from the singularity command line, but first you need to make a little set up.
 
 ![Access token](images/token.png)
 
