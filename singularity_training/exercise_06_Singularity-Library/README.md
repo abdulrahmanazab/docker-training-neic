@@ -1,11 +1,6 @@
 Exercise 06 - Singularity Library 
 =================================
 
-Goals:
-------
-
-1. Become familiar with Singularity Librarity and remote building
-
 Singularity exec on a HPC cluster
 ---------------------------------
 
