@@ -1,32 +1,5 @@
-"17th Advanced School on Parallel Computing - Containerization in HPC" - Tutorial 
-=================================================================================
-
-ABOUT THE TUTORIAL
----------------------
-
-In this tutorial, we provide the preliminary steps to attend the "17th Advanced School on Parallel Computing" focused on Containerization in HPC organized by CINECA. 
-
-We list some ssh connection tools, mainly for Windows users. We explain the installation instructions for Singularity and Docker, since the build of containers will be done on your local workstation, while run and execution will be done on GALILEO CINECA HPC cluster, the one chosen for the hands-on of the course. Then, we provide the instructions to set up Git Hub, Docker Hub and Singularity Hub, to simplify the sharing and the automated build containers process.  
-
-We provide instructions for Linux users. The instruction links for Windows and Mac users are also listed. 
-
-We strongly recommend to install Singularity and Docker tools, and set up and sign up into the hubs before the beginning of the course.
-
-If you meet troubles in the procedures explained, please contact us by sending an email to corsi.hpc@cineca.it before the beginning of the course.
-
-SSH CONNECTION
---------------
-
-In order to attend this course you will need to connect to GALILEO CINECA HPC cluster via secure shell (ssh). 
-
-If you are using Linux or MacOS, you already have the ssh command in the OS shell.
-
-If you are using Windows, you can use ssh in PowerShell or in Command Prompt (cmd.exe). If you encounter trouble, we suggest (recommend) to install and use one of these three tools:
-
-1. PuTTY - https://www.putty.org/
-2. GitBash - https://gitforwindows.org/
-3. Secure Shell extension for Chrome - https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd - 
-   Open this link with Chrome or Chromium browser.
+"HPC Workshop on Containers and Unikernel" -- PRACE on-line event, July 5th-9th, 2021 
+=====================================================================================
 
 DOCKER INSTALLATION
 -------------------
