@@ -19,17 +19,17 @@ On \$SCRATCH directory in Piz Daint, write a recipe with a pure MPI Hello World 
 5) install the MPICH version 3.4.2, configuring by the options '' --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3'' .
 The snippet of the steps for the installation are:
 
-	wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz
-	tar xf mpich-3.4.2.tar.gz
-	cd mpich-3.4.2
-	./configure --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3
-	make -j$(nproc)
-	make install
-	ldconfig
+		wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz
+		tar xf mpich-3.4.2.tar.gz
+		cd mpich-3.4.2
+		./configure --disable-fortran --enable-fast=all,O3 --prefix=/usr --with-device=ch3
+		make -j$(nproc)
+		make install
+		ldconfig
 
 6) Moreover, copy in the **/data** directory within the container the code **hello\_world\_MPI.c**, available in this repo directory (remember the **%files** section) and add in the recipe the command for compiling such code: 
 
-	mpicc -o hello_world_MPI.bin  hello_world_MPI.c
+		mpicc -o hello_world_MPI.bin  hello_world_MPI.c
 
 
 Build the Singularity container 
