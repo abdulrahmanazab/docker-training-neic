@@ -17,5 +17,6 @@ Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/docker.md)
 * [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/tree/prace-training-2021/singularity_training)
-* [SARUS](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/sarus.md)
+* [Sarus](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/sarus.md)
+* [Charliecloud](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/Charliecloud/Charliecloud.md)
 * [Unikernels](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/unikernels.md)
