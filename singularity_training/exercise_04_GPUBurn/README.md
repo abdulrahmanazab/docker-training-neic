@@ -25,12 +25,16 @@ Build and run on Piz Daint
 
 Build the container on Piz Daint compute node with fakeroot, as in the previous exercises, the exec the gpu-burn executable by submitting a job asking for 1 node. 
 
-You can monitoring GPU usage with nvidia-smi tool:
+You can monitoring GPU usage with nvidia-smi tool on the node where your job is running. 
+To know the node name, after that your job is running, type the command:
+
+	$ squeue -j <jobid> -o "%N"
+	
+Then, login into the node and execute the nvidia-smi command:
 
 	$ ssh <node number> nvidia-smi -l 1
 
-
-Al alternative approach is to create an allocation and log onto the compute node directly, by using the command: 
+An alternative approach is to create an allocation and log onto the compute node directly, by using the command: 
 
 	$ srun -C gpu -A <account> --pty -u -N1 bash -l 
 
