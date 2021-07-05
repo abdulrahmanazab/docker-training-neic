@@ -1,16 +1,17 @@
 
 # Containers Tutorial - PRACE training, 2021
 
-The training infrastructure is offered by [Piz Daint](https://www.cscs.ch/computers/piz-daint/) at CSCS, Switserland.
+The training infrastructure is offered by 
+* [Piz Daint](https://www.cscs.ch/computers/piz-daint/) at CSCS, Switserland.
+* [Norwegian Research and Education cloud](https://www.nrec.no/)
 
 Connect to your VM
 --------------------
-* You will get the key file ``docker-tutorial.pem`` from your instructor
+* You will get the key file ``nrec.pem`` from your instructor
 * Now use it to connect to your VM:
 ```bash
-chmod 600 docker-tutorial.pem 
-ssh -i docker-tutorial.pem cloud-user@<Terminal-IP-Address>
-[cloud-user@docker-tutorial-terminal ~]$ ssh -i docker-tutorial.pem cloud-user@container-tutorial-[1-22]
+chmod 600 nrec.pem 
+ssh -i nrec.pem debian@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
