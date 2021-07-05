@@ -21,7 +21,7 @@ ContainerName Exercise 03 HPL complete solution
  
   ####### Create a work directory #######
   mkdir -p /workdir && cd /workdir
-  wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2tar.gz
+  wget -q http://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz
   wget http://www.netlib.org/blas/blas-3.8.0.tgz
   wget https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz
   
