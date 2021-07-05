@@ -99,7 +99,7 @@ Part 3 (Distributed orchestration with Swarm)
 
 Backup:
 --------
-9. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
-10. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
+11. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
+12. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
 
 
