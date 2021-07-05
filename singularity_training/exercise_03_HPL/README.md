@@ -1,13 +1,6 @@
 Exercise 03 - Singularity High Performance Linpack 
 ==================================================
 
-Goals: 
-------
-
-1. Compile HPL inside a container
-2. Directory binding (HOME is authomatic) 
-
-
 Introduction 
 -------------
 HPL is the most famous benchmark for HPC cluster. The aim of this exercise is to download and install HPL and its dependecises inside a container and then run it on PizDaint
@@ -69,7 +62,7 @@ Build the container on Piz Daint compute node using the fakeroot feature.
 
 Submit an interactive job:
 
-        $ srun -C gpu -A class02 --pty -u bash
+        $ srun -C gpu -A class02 --reservation=prace --pty -u bash
 
 then, since the MPI BINDING approach is beeing used,  load the following modules:
 
