@@ -75,7 +75,7 @@ then load the following modules
 
 Finally build your Singularity container sandbox:
 
-	$ singularity build --fakeroot --fix-perms --sandbox ex_01.sandbox Singularity_01	(1.7)
+	$ singularity build --fakeroot --fix-perms --sandbox ex_01.sandbox Singularity_01_OpenMP	(1.7)
 
 During the building phase, check on the terminal the output of the commands (1.1) and (1.2):
 
