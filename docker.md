@@ -80,15 +80,21 @@ For more examples and ideas, visit:
 ```
 * [Official page](https://docs.docker.com/engine/install/debian/)
 
-Here we go...
---------------
+Here we go... Part 1 (Basics)
+------------------------------
 1. [Run your first container](http://training.play-with-docker.com/ops-s1-hello/)
 2. [Docker images](http://training.play-with-docker.com/ops-s1-images/)
 3. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
-5. [Docker Compose - 120 mins](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/docker-compose.md)
-6. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-7. [Advanced example - 60 mins](http://training.play-with-docker.com/beginner-linux/)
-8. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+4. [Advanced example - 30 mins](http://training.play-with-docker.com/beginner-linux/)
+
+Part 2 (Container Service with Docker compose)
+------------------------------------------------
+6. [Docker Compose - 120 mins](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/docker-compose.md)
+
+Part 3 (Distributed orchestration with Swarm)
+----------------------------------------------
+8. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
+9. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Backup:
 --------
