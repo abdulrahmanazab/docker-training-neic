@@ -87,7 +87,7 @@ Here we go...
 3. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
 5. [Docker Compose - 90 mins](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-compose.md)
 6. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-7. [Advanced example](http://training.play-with-docker.com/beginner-linux/)
+7. [Advanced example - 60 mins](http://training.play-with-docker.com/beginner-linux/)
 8. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Backup:
