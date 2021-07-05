@@ -33,7 +33,9 @@ This will give you an interactive shell on the compute node. There you can run y
 
 	$ singularity exec --nv ex_04.sif /opt/gpu-burn/gpu_burn.sh > gpu_burn.out &
 
-While gpu\_burn executes on the background you can run nvidia-smi to check what is happening on the gpu.
+While gpu\_burn executes on the background you can run nvidia-smi to check what is happening on the gpu:
+
+	$ nvidia-smi -l 1 
 
 
 Multi-stage build 
