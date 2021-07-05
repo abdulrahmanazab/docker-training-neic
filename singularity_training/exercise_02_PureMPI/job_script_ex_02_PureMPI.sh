@@ -4,6 +4,7 @@
 #SBATCH --time=00:10:00
 #SBATCH -A class02 
 #SBATCH -C gpu 
+#SBATCH --reservation=prace
 #SBATCH --job-name=mpi_multi-node
 
 module load daint-gpu
