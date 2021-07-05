@@ -1,36 +1,43 @@
 # Docker
 
-Your VM is a CentOS 7
+Your VM is a Debian 10
 
 Install Docker
 ---------------
-* Install required packages:
+* Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 ```bash
-$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
 ```
-* set up the stable repository:
+* Add Docker’s official GPG key:
 ```bash
-$ sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
-* Update the yum package index.:
+* Use the following command to set up the stable repository.
 ```bash
-$ sudo yum makecache fast
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
-* Install the latest version of Docker:
+* install the latest version of Docker Engine and containerd
 ```bash
-sudo yum install docker-ce
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
-Accept this fingerprint ``060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35``
 
 Try Docker
 -----------
-* Start the docker service
+* Run Docker as root:
 ```bash
-sudo service docker start
+sudo docker run hello-world
 ```
-* List images:
+* Run Docker (as a regular user):
 ```bash
 $ docker run hello-world
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.27/images/json: dial unix /var/run/docker.sock: connect: permission denied
@@ -38,9 +45,9 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 * You need to be a member of the docker group:
 ```bash
 $ sudo groupadd docker
-$ sudo usermod -aG docker cloud-user
+$ sudo usermod -aG docker debian
 $ exit
-$ ssh -i docker-tutorial.pem cloud-user@<IP-Address>
+$ ssh -i nrec.pem debian@<IP-Address>
 ```
 * Now you can use docker:
 ```bash
@@ -71,7 +78,7 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
 ```
-* [Official page](https://docs.docker.com/engine/installation/linux/centos/)
+* [Official page](https://docs.docker.com/engine/install/debian/)
 
 Here we go...
 --------------
