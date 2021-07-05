@@ -74,7 +74,7 @@ All the host network and mpi library are set and autatically binded into the con
 
 Build the container by using the command:
 
-        $ singularity build --fakeroot --fix-perms hpl.sif Singularity_03
+        $ singularity build --fakeroot --fix-perms hpl.sif Singularity_03_HPL_complete
 
 
 Execute the container
