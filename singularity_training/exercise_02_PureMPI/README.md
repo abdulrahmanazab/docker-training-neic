@@ -39,7 +39,7 @@ Build the container on Piz Daint compute node using the fakeroot feature.
 
 Submit an interactive job: 
 
-	$ srun -C gpu -A class02 --pty -u bash
+	$ srun -C gpu -A class02 --reservation=prace --pty -u bash
 
 then, since the MPI BINDING approach is beeing used,  load the following modules: 
 
@@ -85,7 +85,7 @@ To submit an interactive job, open a new shell in Piz Daint, load the modules:
 
 then type a command like: 
 
-	$ srun -C gpu -A class02 -N2 --ntasks-per-node=4 singularity exec ex_02.sif /data/hello_world_MPI.bin
+	$ srun -C gpu -A class02 -N2 --ntasks-per-node=4 --reservation=prace singularity exec ex_02.sif /data/hello_world_MPI.bin
 
 
 Solution
