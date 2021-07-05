@@ -87,9 +87,11 @@ Here we go...
 3. [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
 5. [Docker Compose](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-compose.md)
 6. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-7. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
-8. [Advanced example](http://training.play-with-docker.com/beginner-linux/)
-9. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
-10. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+7. [Advanced example](http://training.play-with-docker.com/beginner-linux/)
+8. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+
+Backup:
+9. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
+10. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
 
 
