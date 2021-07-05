@@ -61,7 +61,7 @@ Build your Singularity container on Piz Daint using the fakeroot feature, that i
 
 Submit an interactive job by the command: 
 	
-	$ srun -C gpu -A class02 --pty -u bash							(1.3)
+	$ srun -C gpu -A class02 --reservation=prace --pty -u bash				(1.3)
 
 then load the following modules
 	
@@ -147,7 +147,7 @@ Open a new shell in Piz Daint, load the modules:
 
 and then exec the **hello world** in the container 
 
-	$ srun -C gpu -A class02 -N1 singularity exec ex_01.sif /data/hello_world_openMP.bin
+	$ srun -C gpu -A class02 -N1 --reservation=prace singularity exec ex_01.sif /data/hello_world_openMP.bin
 
 How many threads are running? 
 
