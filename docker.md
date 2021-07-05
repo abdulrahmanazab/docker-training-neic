@@ -95,7 +95,9 @@ Part 3 (Distributed orchestration with Swarm)
 ----------------------------------------------
 8. [Introduction to Docker swarm - 16 mins video](https://www.youtube.com/watch?v=Tm0Q5zr3FL4)
 9. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-10. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+10. [Swarm Mode Introduction for IT Pros](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+11. [Docker orchestration with swarm - 30 mins](https://training.play-with-docker.com/orchestration-hol/)
+
 
 Backup:
 --------
