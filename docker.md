@@ -91,6 +91,7 @@ Here we go...
 8. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Backup:
+--------
 9. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
 10. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
 
