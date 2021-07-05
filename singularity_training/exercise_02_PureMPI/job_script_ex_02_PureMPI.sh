@@ -11,7 +11,6 @@ module load daint-gpu
 module load singularity/3.6.4-daint
 module unload xalt
 
-module list 
 
 srun singularity exec ex_02.sif /data/hello_world_MPI.bin  
 
