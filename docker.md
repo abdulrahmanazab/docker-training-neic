@@ -93,8 +93,9 @@ Part 2 (Container Service with Docker compose)
 
 Part 3 (Distributed orchestration with Swarm)
 ----------------------------------------------
-8. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-9. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+8. [Introduction to Docker swarm - 16 mins video](https://www.youtube.com/watch?v=Tm0Q5zr3FL4)
+9. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
+10. [Compose advanced features with swarm](http://training.play-with-docker.com/ops-s1-swarm-intro/)
 
 Backup:
 --------
