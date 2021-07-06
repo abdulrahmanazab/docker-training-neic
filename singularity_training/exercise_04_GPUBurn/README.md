@@ -8,7 +8,7 @@ Aim of this exercise is build a container with the 'gpu burn' code and test it o
 
 Write a Singularity recipe starting from the nvidia/cuda:10.2-devel-centos7 docker repository. 
 
-Install git application and clone the gpu-burn repo, available at https://github.com/wilicc/gpu-burn.git. 
+Install git application and clone the gpu-burn repo, available at https://github.com/wilicc/gpu-burn.git
 
 We suggest creating a temporary directory where you put the source code (as an example /opt). 
 
