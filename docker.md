@@ -89,19 +89,19 @@ Here we go... Part 1 (Basics)
 
 Part 2 (Container Service with Docker compose)
 ------------------------------------------------
-6. [Docker Compose - 120 mins](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/docker-compose.md)
+5. [Docker Compose - 120 mins](https://github.com/abdulrahmanazab/docker-training-neic/blob/prace-training-2021/docker-compose.md)
 
 Part 3 (Distributed orchestration with Swarm)
 ----------------------------------------------
-8. [Introduction to Docker swarm - 16 mins video](https://www.youtube.com/watch?v=Tm0Q5zr3FL4)
-9. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
-10. [Swarm Mode Introduction for IT Pros](http://training.play-with-docker.com/ops-s1-swarm-intro/)
-11. [Docker orchestration with swarm - 30 mins](https://training.play-with-docker.com/orchestration-hol/)
+6. [Introduction to Docker swarm - 16 mins video](https://www.youtube.com/watch?v=Tm0Q5zr3FL4)
+7. [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
+8. [Swarm Mode Introduction for IT Pros](http://training.play-with-docker.com/ops-s1-swarm-intro/)
+9. [Docker orchestration with swarm - 30 mins](https://training.play-with-docker.com/orchestration-hol/)
 
 
 Backup:
 --------
-11. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
-12. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
+10. Docker continuous integration ([Slides](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/Docker-continous-integration.pdf)), ([exercise](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-continuous-integration.md))
+11. [Docker with user namespaces](https://github.com/abdulrahmanazab/docker-training-neic/blob/research-bazaar-2020/docker-userns.md)
 
 
