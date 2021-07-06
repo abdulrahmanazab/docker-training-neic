@@ -7,7 +7,7 @@ Write the Singularity definition file
 Login in PizDaint: 
 
 	$ ssh <username>@ela.cscs.ch
-	$ ssh daint.cscs.sh 
+	$ ssh daint
 
 then move to the \$SCRATCH directory 
 
