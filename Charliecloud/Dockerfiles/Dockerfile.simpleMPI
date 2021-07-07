@@ -1,0 +1,57 @@
+# The MPICH example has a smaller scope than the OpenMPI example. We want to
+# provide an MPICH build that works on a single node and (via ch-fromhost
+# trickery) on Cray Aries systems. That's it for now.
+#
+# We build MPICH rather than install the RPM to get a bare bones build.
+#
+# ch-test-scope: full
+
+FROM centos8
+
+RUN dnf install -y --setopt=install_weak_deps=false \
+                automake \
+                file \
+                gcc \
+                gcc-c++ \
+                gcc-gfortran \
+                git \
+                make \
+                wget \
+ && dnf clean all
+
+WORKDIR /usr/local/src
+
+# We currently need our own patched patchelf; see issue #256.
+RUN git clone https://github.com/hpc/patchelf.git \
+ && cd patchelf \
+ && git checkout shrink-soname \
+ && ./bootstrap.sh \
+ && ./configure --prefix=/usr/local \
+ && make install \
+ && rm -Rf ../patchelf
+
+ARG MPI_VERSION=3.2.1
+ARG MPI_URL=http://www.mpich.org/static/downloads/${MPI_VERSION}
+RUN wget -nv ${MPI_URL}/mpich-${MPI_VERSION}.tar.gz \
+ && tar xf mpich-${MPI_VERSION}.tar.gz \
+ && cd mpich-${MPI_VERSION} \
+ && CFLAGS=-O3 \
+    CXXFLAGS=-O3 \
+    ./configure --prefix=/usr/local \
+                --disable-cxx \
+                --disable-fortran \
+                --disable-threads \
+                --disable-rpath \
+                --disable-static \
+                --disable-wrapper-rpath \
+                --without-ibverbs \
+                --without-libfabric \
+                --without-slurm \
+ && make -j$(getconf _NPROCESSORS_ONLN) install \
+ && rm -Rf ../mpich-${MPI_VERSION}*
+RUN ldconfig
+
+# Create a directory for the MPI test programs
+RUN mkdir /MPI_TESTS
+# Copy the MPI "hello world" C program from the directory into the cotnainer
+COPY mpi_hello_world.c /MPI_TESTS/mpi_hello_world.c
