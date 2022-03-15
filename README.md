@@ -1,5 +1,5 @@
 
-# Containers Tutorial - HPC/NIRD course, 2021
+# Containers Tutorial - NORBIS 2022
 
 The training infrastructure is offered by the [Norwegian Research and Education Cloud (NREC)](https://www.nrec.no/).
 
@@ -14,8 +14,8 @@ ssh -i nrec.pem centos@<Terminal-IP-Address>
 ```
 Tutorial contents
 ------------------
-* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/docker.md)
-* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/singularity.md)
-* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/docker-htcondor.md)
-* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/singularity-openmpi.md)
-* [Unikernels](https://github.com/abdulrahmanazab/docker-training-neic/blob/hpc-nird-course-2021/unikernels.md)
+* [Docker](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-2022/docker.md)
+* [Singularity](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-2022/singularity.md)
+* [Docker on HTCondor](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-2022/docker-htcondor.md)
+* [Singularity MPI](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-2022/singularity-openmpi.md)
+* [Unikernels](https://github.com/abdulrahmanazab/docker-training-neic/blob/norbis-2022/unikernels.md)
