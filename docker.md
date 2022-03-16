@@ -22,7 +22,7 @@ $ sudo yum makecache fast
 ```
 * Install the latest version of Docker:
 ```bash
-sudo yum install docker-ce
+sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 Accept this fingerprint ``060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35``
 
