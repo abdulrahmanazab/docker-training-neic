@@ -4,6 +4,8 @@ Your VM is a CentOS 7
 
 Install Docker
 ---------------
+* [**Offecial instructions**](https://docs.docker.com/engine/install/centos/)
+
 * Install required packages:
 ```bash
 $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
