@@ -27,7 +27,7 @@ wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singula
     sudo rpm --install -vh ~/rpmbuild/RPMS/x86_64/singularity-${VERSION}-1.el7.x86_64.rpm && \
     rm -rf ~/rpmbuild singularity-${VERSION}*.tar.gz
 ```
-* [Installation admin guide](https://www.sylabs.io/guides/3.1/admin-guide/admin_quickstart.html#installation)
+* [Installation admin guide](https://sylabs.io/guides/3.5/admin-guide/installation.html)
 
 Update
 -------
