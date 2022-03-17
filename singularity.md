@@ -156,29 +156,29 @@ Build options:
 Search for a container
 ```bash
 $ singularity search bowtie
-No users found for 'bowtie'
+Found 3 container images for amd64 matching "bowtie":
 
-No collections found for 'bowtie'
+	library://btmiller/default/testimg-bowtie2-samtools:latest
 
-Found 1 containers for 'bowtie'
-	library://kavall86/default/bowtie2.simg
-		Tags: latest
+	library://hindrek/nipt/bowtie2_samtools:1.0.0
+
+	library://yh549848/rnaseqde/bowtie2:2.4.1
 ```
 Build a container
 ```bash
-$ singularity build bowtie.sif library://kavall86/default/bowtie2.simg
+$ singularity build bowtie2.sif library://yh549848/rnaseqde/bowtie2:2.4.1
 $ singularity build hello-world.sif shub://vsoch/hello-world
 $ singularity build lolcow.sif docker://godlovedc/lolcow
 ```
 * Interact with containers
 ```bash
-$singularity exec bowtie.sif bowtie2 --version
-/miniconda/bin/bowtie2-align-s version 2.3.4.3
+$ singularity exec bowtie2.sif bowtie2 --version
+/opt/conda/bin/bowtie2-align-s version 2.4.1
 64-bit
-Built on default-985f7a91-f7b9-4ecf-bdfc-9e83887f2387
-Thu Sep 20 02:31:58 UTC 2018
-Compiler: gcc version 4.8.2 20140120 (Red Hat 4.8.2-15) (GCC)
-Options: -O3 -m64 -msse2 -funroll-loops -g3  -DBOOST_MATH_DISABLE_FLOAT128 -m64 -fPIC -std=c++98 -DPOPCNT_CAPABILITY -DWITH_TBB -DNO_SPINLOCK -DWITH_QUEUELOCK=1
+Built on
+Fri Feb 28 17:23:43 UTC 2020
+Compiler: gcc version 7.3.0 (crosstool-NG 1.23.0.450-d54ae)
+Options: -O3 -msse2 -funroll-loops -g3 -fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /opt/conda/include -fdebug-prefix-map=/opt/conda/conda-bld/bowtie2_1582910401777/work=/usr/local/src/conda/bowtie2-2.4.1 -fdebug-prefix-map=/opt/conda=/usr/local/src/conda-prefix -DPOPCNT_CAPABILITY -DWITH_TBB -std=c++11 -DNO_SPINLOCK -DWITH_QUEUELOCK=1
 Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
 
 $ singularity shell docker://genomicpariscentre/bowtie2
@@ -223,8 +223,8 @@ $ sudo singularity shell --writable lolcow/
 ```
 Local SIF to sandbox:
 ```bash
-$ sudo singularity build --sandbox bowtie bowtie.sif
-$ sudo singularity shell --writable bowtie/
+$ sudo singularity build --sandbox bowtie bowtie2.sif
+$ sudo singularity shell --writable bowtie2/
 ```
 Sandbox to SIF:
 ```bash
@@ -254,20 +254,20 @@ sudo singularity build ubuntu.img ubuntu.def
 
 * Interact with a pulled image
 ```bash
-$ singularity pull --name hello-world.simg shub://vsoch/hello-world
-$ singularity shell hello-world.simg
+$ singularity pull --name hello-world.sif shub://vsoch/hello-world
+$ singularity shell hello-world.sif
 Singularity: Invoking an interactive shell within container...
 
 # I am the same user inside as outside!
 Singularity hello-world.simg:~/Desktop> whoami
 vanessa
 
-Singularity hello-world.simg:~/Desktop> id
+Singularity hello-world.sif:~/Desktop> id
 uid=1000(vanessa) gid=1000(vanessa) groups=1000(vanessa),4(adm),24,27,30(tape),46,113,128,999(input)
 ```
 * Execute a command on a pulled image
 ```bash
-$ singularity exec hello-world.simg ls /
+$ singularity exec hello-world.sif ls /
 anaconda-post.log  etc	 lib64	     mnt   root  singularity  tmp
 bin		   home  lost+found  opt   run	 srv	      usr
 dev		   lib	 media	     proc  sbin  sys	      var
@@ -303,11 +303,10 @@ HPC clusters usually have a shared file system for data storage, software module
 ```bash
 docker search bowtie2
 ...
-## sudo singularity build -w bowtie2.simg docker://genomicpariscentre/bowtie2
 sudo singularity build --sandbox bowtie2/ docker://genomicpariscentre/bowtie2
 sudo singularity shell -w bowtie2/
-singularity bowtie2.simg:/root> mkdir /cluster /work /usit /tsd /net /projects
-singularity bowtie2.simg:/root> exit
+singularity> mkdir /cluster /work /usit /tsd /net /projects
+singularity > exit
 sudo singularity build bowtie2.sif bowtie2/
 
 scp bowtie2.sif <abel-user>@abel.uio.no:~/
